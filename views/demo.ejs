@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .start{
+        box-sizing: border-box;
+
+position: absolute;
+width: 114px;
+height: 114px;
+
+background: #F50E0E;
+border-width: 0px 1px 1px 1px;
+border-style: solid;
+border-color: #000000;}
+
+
+/* GO */
+.go{
+
+position: absolute;
+width: 65px;
+height: 36px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 32px;
+line-height: 39px;
+text-align: center;
+
+color: #FFFFFF;}
+
+
+
+/* Collect &#8377 1500 as you go. */
+
+.msg{
+position: absolute;
+width: 96px;
+height: 34px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 15px;
+text-align: center;
+
+color: #FFFFFF;}
+
+
+
+/* arrow up */
+
+.arrow{
+position: absolute;
+width: 30px;
+height: 46px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 15px;
+text-align: center;
+
+color: #FFFFFF;}
+
+
+/* Rectangle 16 */
+
+.universe{
+box-sizing: border-box;
+
+position: absolute;
+width: 114px;
+height: 114px;
+
+background: #FFFEFE;
+border-width: 0px 1px 1px 0px;
+border-style: solid;
+border-color: #000000;}
+
+
+/* Rectangle 27 */
+
+.uniup{
+box-sizing: border-box;
+
+position: absolute;
+width: 114px;
+height: 27px;
+
+background: #1E08A3;
+border-width: 1px 1px 0px 0px;
+border-style: solid;
+border-color: #000000;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);}
+
+
+/* Mumbai */
+
+.uni{
+position: absolute;
+width: 62px;
+height: 20px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 18px;
+text-align: center;
+
+color: #000000;}
+
+
+
+/* &#8377 450 */
+
+.quiz{
+position: absolute;
+width: 80px;
+height: 22px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 15px;
+text-align: center;
+
+color: #000000;}
+
+    </style>
+</head>
+<body>
+    <div class="start"></div>
+    <div class="go">GO</div>    
+    <div class="msg">Collect &#8377 1500 as you go</div>
+    <div class="arrow">&#8593</div>
+
+    <div class="universe"></div>
+    <div class="uniup">GO</div>    
+    <div class="uni">Collect</div>
+    <div class="quiz">&#8593</div>
+</body>
+</html>
+
+
+
+<!-- /* Rectangle 1 */
+
+
+box-sizing: border-box;
+
+position: absolute;
+width: 114px;
+height: 114px;
+
+background: #FFFEFE;
+border-width: 0px 1px 1px 1px;
+border-style: solid;
+border-color: #000000;
+
+
+/* Rectangle 6 */
+
+
+box-sizing: border-box;
+
+position: absolute;
+width: 114px;
+height: 114px;
+
+background: #F37A09;
+border: 1px solid #000000;
+
+
+/* Rectangle 12 */
+
+
+box-sizing: border-box;
+
+position: absolute;
+width: 114px;
+height: 114px;
+
+background: #FFFEFE;
+border-width: 0px 1px 1px 1px;
+border-style: solid;
+border-color: #000000;
+
+
+/* Rectangle 18 */
+
+
+box-sizing: border-box;
+
+position: absolute;
+width: 114px;
+height: 114px;
+
+background: #FFFEFE;
+border-width: 0px 1px 1px 0px;
+border-style: solid;
+border-color: #000000;
+
+
+/* Rectangle 17 */
+
+
+box-sizing: border-box;
+
+position: absolute;
+width: 114px;
+height: 114px;
+
+background: #FFFEFE;
+border-width: 0px 1px 1px 0px;
+border-style: solid;
+border-color: #000000;
+
+
+/* Rectangle 16 */
+
+
+box-sizing: border-box;
+
+position: absolute;
+width: 114px;
+height: 114px;
+
+background: #FFFEFE;
+border-width: 0px 1px 1px 0px;
+border-style: solid;
+border-color: #000000;
+
+
+/* Rectangle 15 */
+
+
+box-sizing: border-box;
+
+position: absolute;
+width: 114px;
+height: 114px;
+
+background: #05FBFB;
+border-width: 0px 1px 1px 0px;
+border-style: solid;
+border-color: #000000;
+
+
+/* Rectangle 14 */
+
+
+box-sizing: border-box;
+
+position: absolute;
+width: 114px;
+height: 114px;
+
+background: #FFFEFE;
+border-width: 0px 1px 1px 1px;
+border-style: solid;
+border-color: #000000;
+
+
+/* Rectangle 13 */
+
+
+box-sizing: border-box;
+
+position: absolute;
+width: 114px;
+height: 114px;
+
+background: #FFFEFE;
+border-width: 0px 1px 1px 1px;
+border-style: solid;
+border-color: #000000;
+
+
+/* Rectangle 11 */
+
+
+box-sizing: border-box;
+
+position: absolute;
+width: 114px;
+height: 114px;
+
+background: #3E1515;
+border-width: 1px 1px 1px 0px;
+border-style: solid;
+border-color: #000000;
+
+
+/* Rectangle 10 */
+
+
+box-sizing: border-box;
+
+position: absolute;
+width: 114px;
+height: 114px;
+
+background: #FFFEFE;
+border-width: 0px 1px 1px 0px;
+border-style: solid;
+border-color: #000000;
+
+
+/* Rectangle 9 */
+
+
+box-sizing: border-box;
+
+position: absolute;
+width: 114px;
+height: 114px;
+
+background: #FFFEFE;
+border-width: 0px 1px 1px 0px;
+border-style: solid;
+border-color: #000000;
+
+
+/* Rectangle 8 */
+
+
+box-sizing: border-box;
+
+position: absolute;
+width: 114px;
+height: 114px;
+
+background: #FFFEFE;
+border-width: 0px 1px 1px 0px;
+border-style: solid;
+border-color: #000000;
+
+
+/* Rectangle 7 */
+
+
+box-sizing: border-box;
+
+position: absolute;
+width: 114px;
+height: 114px;
+
+background: #F50E0E;
+border-width: 0px 1px 1px 1px;
+border-style: solid;
+border-color: #000000;
+
+
+/* Rectangle 3 */
+
+
+box-sizing: border-box;
+
+position: absolute;
+width: 114px;
+height: 114px;
+
+background: #FFD700;
+border-width: 0px 1px 1px 1px;
+border-style: solid;
+border-color: #000000;
+filter: blur(2px);
+
+
+/* Rectangle 2 */
+
+
+box-sizing: border-box;
+
+position: absolute;
+width: 114px;
+height: 114px;
+
+background: #FDFAFA;
+border-width: 0px 1px 1px 1px;
+border-style: solid;
+border-color: #000000;
+
+
+/* Rectangle 4 */
+
+
+box-sizing: border-box;
+
+position: absolute;
+width: 114px;
+height: 27px;
+
+background: #1E08A3;
+border-width: 0px 1px;
+border-style: solid;
+border-color: #000000;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+
+/* Rectangle 27 */
+
+
+box-sizing: border-box;
+
+position: absolute;
+width: 114px;
+height: 27px;
+
+background: #1E08A3;
+border-width: 1px 1px 0px 0px;
+border-style: solid;
+border-color: #000000;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+
+/* Rectangle 26 */
+
+
+box-sizing: border-box;
+
+position: absolute;
+width: 114px;
+height: 27px;
+
+background: #F9FC5A;
+border-width: 1px 1px 0px 0px;
+border-style: solid;
+border-color: #000000;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+
+/* Rectangle 25 */
+
+
+box-sizing: border-box;
+
+position: absolute;
+width: 114px;
+height: 27px;
+
+background: #26C13F;
+border-width: 1px 1px 0px 0px;
+border-style: solid;
+border-color: #000000;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+
+/* Rectangle 24 */
+
+
+box-sizing: border-box;
+
+position: absolute;
+width: 114px;
+height: 27px;
+
+background: #1E08A3;
+border-width: 0px 1px;
+border-style: solid;
+border-color: #000000;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+
+/* Rectangle 23 */
+
+
+box-sizing: border-box;
+
+position: absolute;
+width: 114px;
+height: 27px;
+
+background: #F9FC5A;
+border-width: 0px 1px;
+border-style: solid;
+border-color: #000000;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+
+/* Rectangle 22 */
+
+
+box-sizing: border-box;
+
+position: absolute;
+width: 114px;
+height: 27px;
+
+background: #26C13F;
+border-width: 0px 1px;
+border-style: solid;
+border-color: #000000;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+
+/* Rectangle 21 */
+
+
+box-sizing: border-box;
+
+position: absolute;
+width: 114px;
+height: 27px;
+
+background: #1E08A3;
+border-width: 1px 1px 0px 0px;
+border-style: solid;
+border-color: #000000;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+
+/* Rectangle 20 */
+
+
+box-sizing: border-box;
+
+position: absolute;
+width: 114px;
+height: 27px;
+
+background: #F9FC5A;
+border-width: 1px 1px 0px 0px;
+border-style: solid;
+border-color: #000000;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+
+/* Rectangle 19 */
+
+
+box-sizing: border-box;
+
+position: absolute;
+width: 114px;
+height: 27px;
+
+background: #26C13F;
+border-width: 1px 1px 0px 0px;
+border-style: solid;
+border-color: #000000;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+
+/* Rectangle 5 */
+
+
+box-sizing: border-box;
+
+position: absolute;
+width: 114px;
+height: 27px;
+
+background: #F9FC5A;
+border-width: 0px 1px;
+border-style: solid;
+border-color: #000000;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+
+/* GO */
+
+
+position: absolute;
+width: 65px;
+height: 36px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 32px;
+line-height: 39px;
+text-align: center;
+
+color: #FFFFFF;
+
+
+
+/* Collect &#8377 1500 as you go. */
+
+
+position: absolute;
+width: 96px;
+height: 34px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 15px;
+text-align: center;
+
+color: #FFFFFF;
+
+
+
+/* POWER UP */
+
+
+position: absolute;
+width: 92px;
+height: 44px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 29px;
+text-align: center;
+
+color: #310303;
+
+
+
+/* &#9889 */
+
+
+position: absolute;
+width: 67px;
+height: 21px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 17px;
+text-align: center;
+
+color: #FFFFFF;
+
+
+
+/* 50/50 */
+
+
+position: absolute;
+width: 76px;
+height: 38px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 29px;
+text-align: center;
+
+color: #0B1D60;
+
+
+
+/* ??! */
+
+
+position: absolute;
+width: 62px;
+height: 27px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 29px;
+text-align: center;
+
+color: #0B1D60;
+
+
+
+/* ATLAS! */
+
+
+position: absolute;
+width: 85px;
+height: 39px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 29px;
+text-align: center;
+
+color: #180A04;
+
+
+
+/* Mumbai */
+
+
+position: absolute;
+width: 67px;
+height: 23px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 18px;
+text-align: center;
+
+color: #000000;
+
+
+
+/* &#8377 450 */
+
+
+position: absolute;
+width: 78px;
+height: 23px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 15px;
+text-align: center;
+
+color: #000000;
+
+
+
+/* Mumbai */
+
+
+position: absolute;
+width: 63px;
+height: 28px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 18px;
+text-align: center;
+
+color: #000000;
+
+
+
+/* Mumbai */
+
+
+position: absolute;
+width: 62px;
+height: 29px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 18px;
+text-align: center;
+
+color: #000000;
+
+
+
+/* Mumbai */
+
+
+position: absolute;
+width: 64px;
+height: 21px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 18px;
+text-align: center;
+
+color: #000000;
+
+
+
+/* Mumbai */
+
+
+position: absolute;
+width: 64px;
+height: 22px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 18px;
+text-align: center;
+
+color: #000000;
+
+
+
+/* Mumbai */
+
+
+position: absolute;
+width: 62px;
+height: 20px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 18px;
+text-align: center;
+
+color: #000000;
+
+
+
+/* Mumbai */
+
+
+position: absolute;
+width: 58px;
+height: 23px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 18px;
+text-align: center;
+
+color: #000000;
+
+
+
+/* Mumbai */
+
+
+position: absolute;
+width: 58px;
+height: 20px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 18px;
+text-align: center;
+
+color: #000000;
+
+
+
+/* Mumbai */
+
+
+position: absolute;
+width: 62px;
+height: 20px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 18px;
+text-align: center;
+
+color: #000000;
+
+
+
+/* Mumbai */
+
+
+position: absolute;
+width: 64px;
+height: 20px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 18px;
+text-align: center;
+
+color: #000000;
+
+
+
+/* Mumbai */
+
+
+position: absolute;
+width: 64px;
+height: 20px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 18px;
+text-align: center;
+
+color: #000000;
+
+
+
+/* JAIL */
+
+
+position: absolute;
+width: 76px;
+height: 37px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 29px;
+text-align: center;
+
+color: #FFFFFF;
+
+
+
+/* sdsf */
+
+
+position: absolute;
+width: 76px;
+height: 29px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 18px;
+text-align: center;
+
+color: #FFFFFF;
+
+
+
+/* &#8377 450 */
+
+
+position: absolute;
+width: 71px;
+height: 21px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 15px;
+text-align: center;
+
+color: #000000;
+
+
+
+/* &#8377 450 */
+
+
+position: absolute;
+width: 80px;
+height: 19px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 15px;
+text-align: center;
+
+color: #000000;
+
+
+
+/* &#8377 450 */
+
+
+position: absolute;
+width: 78px;
+height: 17px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 15px;
+text-align: center;
+
+color: #000000;
+
+
+
+/* &#8377 450 */
+
+
+position: absolute;
+width: 90px;
+height: 19px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 15px;
+text-align: center;
+
+color: #000000;
+
+
+
+/* &#8377 450 */
+
+
+position: absolute;
+width: 84px;
+height: 21px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 15px;
+text-align: center;
+
+color: #000000;
+
+
+
+/* &#8377 450 */
+
+
+position: absolute;
+width: 84px;
+height: 23px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 15px;
+text-align: center;
+
+color: #000000;
+
+
+
+/* &#8377 450 */
+
+
+position: absolute;
+width: 84px;
+height: 20px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 15px;
+text-align: center;
+
+color: #000000;
+
+
+
+/* &#8377 450 */
+
+
+position: absolute;
+width: 80px;
+height: 22px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 15px;
+text-align: center;
+
+color: #000000;
+
+
+
+/* &#8377 450 */
+
+
+position: absolute;
+width: 78px;
+height: 26px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 15px;
+text-align: center;
+
+color: #000000;
+
+
+
+/* &#8377 450 */
+
+
+position: absolute;
+width: 90px;
+height: 19px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 15px;
+text-align: center;
+
+color: #000000;
+
+
+
+/* arrow up */
+
+
+position: absolute;
+width: 30px;
+height: 46px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 15px;
+text-align: center;
+
+color: #FFFFFF; -->

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monopoly</title>
+    <style>
+        #start, #fif, #powjail{
+            background-color: orange;
+            color: purple;
+        }
+        .container1{
+            width: 100px;
+            height: 100px;
+            border: solid;
+            display: inline-block;
+        }
+        .container2{
+            width: 100px;
+            height: 100px;
+            border: solid;
+            display: inline-block;
+        }
+        .container3{
+            width: 100px;
+            height: 100px;
+            border: solid;
+            display: inline-block;
+        }
+        .container4{
+            width: 100px;
+            height: 100px;
+            border: solid;
+            display: inline-block;
+        }
+        .container5{
+            width: 100px;
+            height: 100px;
+            border: solid;
+            display: inline-block;
+        }
+        #c2{
+            width: 100px;
+            height: 100px;
+            border: none;
+        }
+        .Pune, .Scie, .Univ, .Data, .Spor{
+            width: 100px;
+            height: 20px;
+            background-color: blue;
+        }
+        .Amri, .Chen, .Atla, .New {
+            width: 100px;
+            height: 20px;
+            background-color: greenyellow;
+        }
+        .Mumb, .Art , .Mono, .Goa {
+            width: 100px;
+            height: 20px;
+            background-color: yellow;
+        }
+        .STAR, .Powe, .Jail, .fifty{
+            width: 100px;
+            height: 20px;
+            background-color: red;
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <div class="game">
+        
+        <div class="row1">
+            <% for(let i=4;i<9;i++){ %>
+                <% if(list.getNodeAt(i).object.title.substring(0,3)==='Pow' || list.getNodeAt(i).object.title.substring(0,3)==='Jai') {%>
+                    <div class="container1" id="powjail">
+                        <div id="<%=list.getNodeAt(i).object.title.substring(0,3)%>">
+                            <div class="<%=list.getNodeAt(i).object.title.substring(0,4)%>"></div>
+                            <div class="title"><%= list.getNodeAt(i).object.title %></div>
+                            <% if(list.getNodeAt(i).object.title.substring(0,3)==='Pow'){ %> 
+                                <div>q</div>
+                                <div>&#9889</div>
+                            <% }else{ %> 
+                                <div>q</div>
+                                <div>&#9760</div>
+                            <% } %> 
+                        </div>
+                    </div>
+                <% }else{ %> 
+                    <div class="container1">
+                        <div id="<%=list.getNodeAt(i).object.title.substring(0,3)%>">
+                            <div class="<%=list.getNodeAt(i).object.title.substring(0,4)%>"></div>
+                            <div class="title"><%= list.getNodeAt(i).object.title %></div>
+                            <% if(list.getNodeAt(i).object.price!==0){ %> 
+                                <div>q</div>
+                                <div class="points"><%= list.getNodeAt(i).object.price %> points</div>
+                            <% }else{ %> 
+                                <div>q</div>
+                                <div class="points">Quiz</div>
+                            <% } %>     
+                        </div>
+                    </div>
+                <% } %> 
+            <% } %> 
+        </div>
+
+        <div class="row2">
+            <div class="container2">
+                <div id="<%=list.getNodeAt(3).object.title.substring(0,3)%>"> 
+                    <div class="<%=list.getNodeAt(3).object.title.substring(0,4)%>"></div>
+                    <div class="title"><%= list.getNodeAt(3).object.title %></div>
+                    <div>q</div>
+                    <div class="points">Quiz</div>
+                </div>
+            </div>
+            <div class="container2" id="c2">
+                <div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <div class="container2" id="c2">
+                <div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <div class="container2" id="c2">
+                <div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <div class="container2">
+                <div id="<%=list.getNodeAt(9).object.title.substring(0,3)%>"> 
+                    <div class="<%=list.getNodeAt(9).object.title.substring(0,4)%>"></div>
+                    <div class="title"><%= list.getNodeAt(9).object.title %></div>
+                    <div>q</div>
+                    <div class="points"><%= list.getNodeAt(9).object.price %> points</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row3">
+            <div class="container3">
+                <div id="<%=list.getNodeAt(2).object.title.substring(0,3)%>"> 
+                    <div class="<%=list.getNodeAt(2).object.title.substring(0,4)%>"></div>
+                    <div class="title"><%= list.getNodeAt(2).object.title %></div>
+                    <div>q</div>
+                    <div class="points"><%= list.getNodeAt(2).object.price %> points</div>
+                </div>
+            </div>
+            <div class="container3" id="c2">
+                <div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <div class="container3" id="c2">
+                <div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <div class="container3" id="c2">
+                <div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <div class="container3">
+                <div id="<%=list.getNodeAt(10).object.title.substring(0,3)%>"> 
+                    <div class="<%=list.getNodeAt(10).object.title.substring(0,4)%>"></div>
+                    <div class="title"><%= list.getNodeAt(10).object.title %></div>
+                    <div>q</div>
+                    <div class="points"><%= list.getNodeAt(10).object.price %> points</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row4">
+            <div class="container4">
+                <div id="<%=list.getNodeAt(1).object.title.substring(0,3)%>"> 
+                    <div class="<%=list.getNodeAt(1).object.title.substring(0,4)%>"></div>
+                    <div class="title"><%= list.getNodeAt(1).object.title %></div>
+                    <div>q</div>
+                    <div class="points"><%= list.getNodeAt(1).object.price %> points</div>
+                </div>
+            </div>
+            <div class="container4" id="c2">
+                <div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <div class="container4" id="c2">
+                <div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <div class="container4" id="c2">
+                <div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <div class="container4">
+                <div id="<%=list.getNodeAt(11).object.title.substring(0,3)%>"> 
+                    <div class="<%=list.getNodeAt(11).object.title.substring(0,4)%>"></div>
+                    <div class="title"><%= list.getNodeAt(11).object.title %></div>
+                    <div class="points">Quiz</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row5">
+            <div class="container5" id="start">
+                <div id="<%=list.getNodeAt(0).object.title.substring(0,3)%>">
+                    <div class="<%=list.getNodeAt(0).object.title.substring(0,4)%>"></div>
+                    <div class="title"><%= list.getNodeAt(0).object.title %></div>
+                    <div class="inst">Collect 100 as you go</div>
+                </div>
+            </div>
+            <% for(let i=15;i>11;i--){ %>
+                <% if(list.getNodeAt(i).object.title==='50/50') {%>
+                    <div class="container5" id="fif">
+                        <div id="fiftys">
+                            <div class="fifty"></div>
+                            <div class="title"><%= list.getNodeAt(i).object.title %></div>
+                            <div>Quiz</div>
+                            <div>&#9876</div>
+                        </div>
+                    </div>
+                <% } else{ %> 
+                    <div class="container5">
+                        <div id="<%=list.getNodeAt(i).object.title.substring(0,3)%>">
+                            <div class="<%=list.getNodeAt(i).object.title.substring(0,4)%>"></div>
+                            <div class="title"><%= list.getNodeAt(i).object.title %></div>
+                            <% if(list.getNodeAt(i).object.price!==0){ %> 
+                                <div>q</div>
+                                <div class="points"><%= list.getNodeAt(i).object.price %> points</div>
+                            <% }else if(list.getNodeAt(i).object.title=='Monopoly Tax'){ %> 
+                                <div class="points">100 points</div>
+                            <% } else{ %>
+                                <div>q</div>
+                                <div class="points">Quiz</div>
+                            <% } %> 
+                        </div>
+                    </div>
+                <% } %> 
+            <% } %> 
+        </div>
+    </div>
+
+    <form action="/monopoly/1" method="get">
+        <h3><%= users[0] %></h3>
+        Points available: <%= player1.points %> <br>
+        Properties owned: 
+        <ul>
+            <% for(let own of player1.owned){ %>
+                <li><%= own %></li> 
+            <% } %>
+        </ul>
+         
+        <button id="Player1">Roll</button>
+    </form>
+    <form action="/monopoly/2" method="get">
+        <h3><%= users[1] %></h3>
+        Points available: <%= player2.points %> <br>
+        Properties owned: 
+        <ul>
+            <% for(let own of player2.owned){ %>
+                <li><%= own %></li> 
+            <% } %> 
+        </ul>
+        <button id="Player2">Roll</button>
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>
