@@ -94,7 +94,7 @@ class CircularLinkedList extends LinkedList{
     }
 
     triggerQuiz1(){
-        if(this.blockWherePlayer1().object.title === 'Sports' || this.blockWherePlayer1().object.title === 'Art & Culture' || this.blockWherePlayer1().object.title === 'Science and Technology' || this.blockWherePlayer1().object.title === 'Universe' || this.blockWherePlayer1().object.title === 'Atlas'){
+        if(this.blockWherePlayer1().object.title === 'Sports' || this.blockWherePlayer1().object.title === 'Art & Culture' || this.blockWherePlayer1().object.title === 'Science & Technology' || this.blockWherePlayer1().object.title === 'Universe' || this.blockWherePlayer1().object.title === 'Atlas'){
             return true
         }
         else{
@@ -103,7 +103,7 @@ class CircularLinkedList extends LinkedList{
     }
 
     triggerQuiz2(){
-        if(this.blockWherePlayer2().object.title === 'Sports' || this.blockWherePlayer2().object.title === 'Art & Culture' || this.blockWherePlayer2().object.title === 'Science and Technology' || this.blockWherePlayer2().object.title === 'Universe' || this.blockWherePlayer2().object.title === 'Atlas'){
+        if(this.blockWherePlayer2().object.title === 'Sports' || this.blockWherePlayer2().object.title === 'Art & Culture' || this.blockWherePlayer2().object.title === 'Science & Technology' || this.blockWherePlayer2().object.title === 'Universe' || this.blockWherePlayer2().object.title === 'Atlas'){
             return true
         }
         else{
@@ -133,31 +133,31 @@ blocks = [
         place: [
             {
                 what: 'Taj Mahal', 
-                img: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80'
+                img: '/images/taj.jpg'
             },
             {
                 what: 'Great Wall of China',
-                img: 'https://images.unsplash.com/photo-1508804185872-d7badad00f7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80' 
+                img: '/images/wall.jpg' 
             },
             {
                 what: 'Chichen Itza',
-                img: 'https://images.unsplash.com/photo-1512813389649-acb9131ced20?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80' 
+                img: '/images/aachi.jpg' 
             },
             {
                 what: 'Petra',
-                img: 'https://images.unsplash.com/photo-1606210122158-eeb10e0823bf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80' 
+                img: '/images/petra.jpg' 
             },
             {
                 what: 'Machu Picchu',
-                img: 'https://images.unsplash.com/photo-1587595431973-160d0d94add1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=876&q=80' 
+                img: '/images/peru.jpg' 
             },
             {
                 what: 'Christ the Redeemer',
-                img: 'https://cdn.britannica.com/54/150754-050-5B93A950/statue-Christ-the-Redeemer-Rio-de-Janeiro.jpg' 
+                img: '/images/christ.jpg' 
             },
             {
                 what: 'Colosseum',
-                img: 'https://images.unsplash.com/photo-1552832230-c0197dd311b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=796&q=80'
+                img: '/images/rome.jpg'
             }
         ],
         price: 450,
