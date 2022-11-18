@@ -133,31 +133,38 @@ blocks = [
         place: [
             {
                 what: 'Taj Mahal', 
-                img: '/images/taj.jpg'
+                img: 'https://res.cloudinary.com/dc4kfswj7/image/upload/v1668785623/dsMp/taj_avkybc.jpg',
+                hint: 'If you really want a hint for this place then I suggest you to leave this country.'
             },
             {
                 what: 'Great Wall of China',
-                img: '/images/wall.jpg' 
+                img: 'https://res.cloudinary.com/dc4kfswj7/image/upload/v1668785566/dsMp/wall_vbjxvd.jpg' ,
+                hint: 'Located in China. It was used for defense, border controls, allowing the imposition of duties on goods transported along the Silk Road, regulation or encouragement of trade and the control of immigration and emigration.'
             },
             {
                 what: 'Chichen Itza',
-                img: '/images/aachi.jpg' 
+                img: 'https://res.cloudinary.com/dc4kfswj7/image/upload/v1668785596/dsMp/aachi_nwl4ed.jpg',
+                hint: 'Located in Mexico. It was a large pre-Columbian city built by the Maya people of the Terminal Classic period.' 
             },
             {
                 what: 'Petra',
-                img: '/images/petra.jpg' 
+                img: 'https://res.cloudinary.com/dc4kfswj7/image/upload/v1668785459/dsMp/petra_v9xvlm.jpg',
+                hint: "Located in southern Jordan (probably won't help you that much). Originally known to its inhabitants as Raqmu or Raqēmō, is a historic and archaeological city. It is adjacent to the mountain of Jabal Al-Madbah (yeah this won't help you either)." 
             },
             {
                 what: 'Machu Picchu',
-                img: '/images/peru.jpg' 
+                img: 'https://res.cloudinary.com/dc4kfswj7/image/upload/v1668785496/dsMp/peru_kzt4am.jpg',
+                hint: "Located in Eastern Cordillera of southern Peru. Well you can say that it can be spelled like a particular Pokemon......I guess. (If you have not watch pokemon then that's your fault)"
             },
             {
                 what: 'Christ the Redeemer',
-                img: '/images/christ.jpg' 
+                img: 'https://res.cloudinary.com/dc4kfswj7/image/upload/v1668785532/dsMp/christ_w1iyt6.jpg',
+                hint: 'Located in Rio de Janeiro, Brazil. Created by French sculptor Paul Landowski and built by Brazilian engineer Heitor da Silva Costa, in collaboration with French engineer Albert Caquot. If you are a football fan then you must know this.' 
             },
             {
                 what: 'Colosseum',
-                img: '/images/rome.jpg'
+                img: 'https://res.cloudinary.com/dc4kfswj7/image/upload/v1668781807/dsMp/rome_zweklp.jpg',
+                hint: 'Located in the centre of the city of Rome, Italy, just east of the Roman Forum. Synonym of huge'
             }
         ],
         price: 450,
@@ -170,6 +177,7 @@ blocks = [
         title: 'Mumbai',
         place: 'Mumbai',
         price: 464,
+        img: 'https://res.cloudinary.com/dc4kfswj7/image/upload/v1668803792/dsMp/vikram-B_ufwLFEZPE-unsplash_omsidz.jpg',
         quiz: null
     },
     {
@@ -229,6 +237,7 @@ blocks = [
         title: 'New Delhi',
         place: 'New Delhi',
         price: 440,
+        img: 'https://res.cloudinary.com/dc4kfswj7/image/upload/v1668803733/dsMp/new-delhi-india-_dpdmya.jpg',
         quiz: null
     },
     {
@@ -279,6 +288,7 @@ blocks = [
         title: 'Pune',
         place: 'Pune',
         price: 448,
+        img: 'https://res.cloudinary.com/dc4kfswj7/image/upload/v1668803650/dsMp/336491271Pune_Shaniwar_Wada_dzrf2x.jpg',
         quiz: null
     },
     {
@@ -297,6 +307,7 @@ blocks = [
         title: 'Amritsar',
         place: 'Amritsar',
         price: 459,
+        img: 'https://res.cloudinary.com/dc4kfswj7/image/upload/v1668803775/dsMp/ravi-n-jha-aU9yXmIwfkw-unsplash_g7plgm.jpg',
         quiz: null
     },
     {
@@ -306,6 +317,7 @@ blocks = [
         title: 'Goa',
         place: 'Goa',
         price: 436,
+        img: 'https://res.cloudinary.com/dc4kfswj7/image/upload/v1668803680/dsMp/ashutosh-saraswat-CXyz3qljaH8-unsplash_kt8d3u.jpg',
         quiz: null
     },
     {
@@ -365,6 +377,7 @@ blocks = [
         title: 'Chennai',
         place: 'Chennai',
         price: 460,
+        img: 'https://res.cloudinary.com/dc4kfswj7/image/upload/v1668803581/dsMp/resizer_jt4s2r.jpg',
         quiz: null
     },
     {

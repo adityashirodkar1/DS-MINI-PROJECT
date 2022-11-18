@@ -22,7 +22,29 @@
         </section>
     <% }else{ %>
         <% let i = Math.floor(Math.random()*currentBlock.object.place.length)%> 
-        <img src="images/aachi.jpg" class="img-fluid" alt="petra">
-
-        
+        <div class="d-flex justify-content-center">
+            <div class="card mt-3" style="width: 25rem;">
+                <img src="<%=currentBlock.object.place[i].img%>" class="card-img-top" alt="Something that you have to guess">
+                <div class="card-body">
+                  <h5 class="card-title">What's this?</h5>
+                  <p class="card-text"><b>Hint: </b><%=currentBlock.object.place[i].hint%></p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Prize: 100</li> 
+                    <li class="list-group-item">
+                        <form action="/monopoly/<%=p%>/atlas/<%=currentBlock.object.place[i].what%>" method="POST">
+                            <div class="input-group mb-3 mt-3">
+                                <input type="text" class="form-control" name="atlasAns" id="atlasAns" placeholder="Your Answer" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                <button class="btn btn-outline-secondary" id="button-addon2">Submit</button>
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+                <!-- <div class="card-body">
+                  <a href="#" class="card-link">Card link</a>
+                  <a href="#" class="card-link">Another link</a>
+                </div> -->
+            </div> 
+        </div>
+               
     <% } %> 

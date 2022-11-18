@@ -35,13 +35,17 @@ app.get('/monopoly/1', (req,res) => {
     if(list.triggerQuiz1()){
         res.render('quiz', { p })
     }
-    else
+    else if(currentBlock.object.title==='Power Up'){
+        res.render('power')
+    }
+    else{
         if(player1.owned.includes(currentBlock.object.title) === true)
             console.log('hu')
         else if(player2.owned.includes(currentBlock.object.title) === false)
             res.render('purchase', { list , currentBlock , users, player1 , player2 , p })
         else
             res.render('mortage', { currentBlock , users , q , p , player1 , player2 })
+    }
 })
 
 app.get('/monopoly/2', (req,res) => {
@@ -54,13 +58,17 @@ app.get('/monopoly/2', (req,res) => {
     if(list.triggerQuiz2()){
         res.render('quiz', { p })
     }
-    else
+    else if(currentBlock.object.title==='Power Up'){
+        res.render('power')
+    }
+    else{
         if(player2.owned.includes(currentBlock.object.title) === true)
             console.log('hu')
         else if(player1.owned.includes(currentBlock.object.title) === false)
             res.render('purchase', { list , currentBlock , users, player1 , player2 , p })
         else
             res.render('mortage', { currentBlock , users , q , p , player1 , player2})
+    }
 })
 
 app.post('/monopoly/1', (req,res) => {
@@ -117,6 +125,13 @@ app.post('/monopoly/2/:answer', (req,res) => {
     res.render('game', { list , currentBlock , users , player1 , player2 , p })
 })
 
+app.post('/monopoly/1/atlas/:ans', (req,res) => {
+    res.send(req.body)
+})
+
+app.post('/monopoly/2/atlas/:ans', (req,res) => {
+    res.send(req.body)
+})
 
 app.listen(1286, () =>{
     console.log('Listening at Port 1286')

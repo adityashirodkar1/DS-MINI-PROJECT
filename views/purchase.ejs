@@ -1,21 +1,35 @@
     <% layout('layouts/boilerplate') %>
-    <div class="d-flex justify-content-center mt-3 border border-primary">
-        <form action="/monopoly/<%=p%>" method="post">
-            <h2 class="d-flex justify-content-center"><%= currentBlock.object.title %></h2>
-            <div>
-                Here will be image of <%= currentBlock.object.title %>
-            </div>
-            <div>
-                Price: <%= currentBlock.object.price %>
-            </div>
-            <section>
-                <div class="mt-3">
-                    Do you want to buy <%= currentBlock.object.title %>? 
+        <div class="d-flex justify-content-center">
+            <div class="card" style="width: 25rem;">
+                <img src="<%=currentBlock.object.img%>" class="card-img-top" alt="<%= currentBlock.object.title %>">
+                <div class="card-body">
+                  <h5 class="card-title"><%= currentBlock.object.title %></h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 </div>
-                <div class="mt-3">
-                    <button class="btn btn-primary" name="buy" value="on">Buy</button>
-                    <button class="btn btn-primary" name="pass" value="on">Pass</button>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Cost: &#8377 <%= currentBlock.object.price %></li>
+                  <% if(p===1){ %>
+                    <li class="list-group-item">Your Balance: &#8377 <%= player1.points %> </li>
+                  <% }else{ %>
+                    <li class="list-group-item">Your Balance: &#8377 <%= player2.points %> </li>
+                  <% } %> 
+                  <li class="list-group-item">
+                    <form action="/monopoly/<%=p%>" method="post">
+                        <section>
+                            <div class="mt-3">
+                                Do you want to buy <%= currentBlock.object.title %>? 
+                            </div>
+                            <div class="mt-3">
+                                <button class="btn btn-primary" name="buy" value="on">Buy</button>
+                                <button class="btn btn-primary" name="pass" value="on">Pass</button>
+                            </div>
+                        </section>
+                    </form>
+                  </li>
+                </ul>
+                <div class="card-body">
+                  <a href="#" class="card-link">Card link</a>
+                  <a href="#" class="card-link">Another link</a>
                 </div>
-            </section>
-        </form>
-    </div>
+              </div>
+        </div>
