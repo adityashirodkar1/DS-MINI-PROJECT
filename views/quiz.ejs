@@ -1,24 +1,34 @@
     <% layout('layouts/boilerplate') %>
     <% if(currentBlock.object.title!=='Atlas'){ %>
         <% let i = Math.floor(Math.random()*(currentBlock.object.quiz.length)) %>  
-        <section class="d-flex justify-content-center mt-3 border border-primary">
-            <div class="mt-1">
-                <form action="/monopoly/<%=p%>/<%=currentBlock.object.quiz[i].answer%>" method="post"> 
-                    <h2 class="d-flex justify-content-center mt-3"><%=currentBlock.object.title%></h2>
-                    Q. <%= currentBlock.object.quiz[i].question %>
-                    <div>
-                        <% for(option of currentBlock.object.quiz[i].options){ %>
-                            <br>
-                            <input type="radio" id="<%=option%>" name="chosen" value="<%=option%>">
-                            <label for="<%=option%>"><%= option %></label>
-                        <% } %> 
+        <section class="d-flex justify-content-center mt-3">
+            <div class="card" style="width: 25rem;">
+                <img src="<%=currentBlock.object.img%>" class="card-img-top" alt="<%=currentBlock.object.title%>">
+                <div class="card-body">
+                  <h5 class="card-title"><%=currentBlock.object.title%></h5>
+                  <p class="card-text">Answer correctly and get the reward. The value of reward may differ depending on the difficulty level of the question.</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Reward: &#8377 <%=currentBlock.object.quiz[i].reward%></li>
+                  <li class="list-group-item">
+                    <div class="mt-1">
+                        <form action="/monopoly/<%=p%>/<%=i%>" method="post"> 
+                            Q. <%= currentBlock.object.quiz[i].question %>
+                            <div>
+                                <% for(option of currentBlock.object.quiz[i].options){ %>
+                                    <br>
+                                    <input type="radio" id="<%=option%>" name="chosen" value="<%=option%>">
+                                    <label for="<%=option%>"><%= option %></label>
+                                <% } %> 
+                            </div> 
+                            <div class="mt-3">
+                                <button class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
                     </div>
-                    <% currentBlock.object.quiz.splice(i,1) %> 
-                    <div class="mt-3">
-                        <button class="btn btn-primary">Submit</button>
-                    </div>
-                </form>
-            </div>
+                  </li>
+                </ul>
+              </div>
         </section>
     <% }else{ %>
         <% let i = Math.floor(Math.random()*currentBlock.object.place.length)%> 
@@ -30,11 +40,11 @@
                   <p class="card-text"><b>Hint: </b><%=currentBlock.object.place[i].hint%></p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Prize: 100</li> 
+                    <li class="list-group-item">Reward: &#8377 100</li> 
                     <li class="list-group-item">
                         <form action="/monopoly/<%=p%>/atlas/<%=currentBlock.object.place[i].what%>" method="POST">
                             <div class="input-group mb-3 mt-3">
-                                <input type="text" class="form-control" name="atlasAns" id="atlasAns" placeholder="Your Answer" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                <input type="text" class="form-control" name="atlasAns" id="atlasAns" placeholder="Your Answer" aria-describedby="button-addon2">
                                 <button class="btn btn-outline-secondary" id="button-addon2">Submit</button>
                             </div>
                         </form>

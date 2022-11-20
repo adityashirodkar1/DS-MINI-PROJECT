@@ -167,7 +167,7 @@ blocks = [
                 hint: 'Located in the centre of the city of Rome, Italy, just east of the Roman Forum. Synonym of huge'
             }
         ],
-        price: 450,
+        reward: 300,
         quiz: null
     },
     {
@@ -177,6 +177,7 @@ blocks = [
         title: 'Mumbai',
         place: 'Mumbai',
         price: 464,
+        rent: 65,
         img: 'https://res.cloudinary.com/dc4kfswj7/image/upload/v1668803792/dsMp/vikram-B_ufwLFEZPE-unsplash_omsidz.jpg',
         quiz: null
     },
@@ -187,37 +188,44 @@ blocks = [
         title: 'Sports',
         place: 'Dharamshala Stadium',
         reward: 100,
+        img: 'https://res.cloudinary.com/dc4kfswj7/image/upload/v1668841674/dsMp/jannes-glas-0NaQQsLWLkA-unsplash_g0x0dj.jpg',
         price: 0,
         quiz:   [
                     {
                         question: "The famous football player Maradona belongs to which among the following countries?",
                         options: ['Brazil','Chile','Argentina','Italy'],
-                        answer: 'Argentina'
+                        answer: 'Argentina',
+                        reward: 110
                     },
                     {
                         question: "Which of the following Indian Sports Team is also known as “The Bhangra Boys?",
                         options: ['Cricket Team','Hockey Team','Kabaddi Team','Football Team'],
-                        answer: 'Football Team'
+                        answer: 'Football Team',
+                        reward: 120
                     },
                     {
                         question: "Which country has won the maximum number of medals in the all time history of Commonwealth Games?",
                         options: ['Australia','England','India','Canada'],
-                        answer: 'Australia'
+                        answer: 'Australia',
+                        reward: 105
                     },
                     {
                         question: "What does the globe in the ICC World Cup Trophy symbolise?",
                         options: ['World','All participating nations','Cricket Ball','Unity'],
-                        answer: 'Cricket Ball'
+                        answer: 'Cricket Ball',
+                        reward: 100
                     },
                     {
                         question: "Which organization awards the 'Pierre de Coubertin Medal'?",
                         options: ['The United Nations','The International Monetary Fund','The International Olympic Committee','The International Atomic Energy Agency'],
-                        answer: 'The International Olympic Committee'
+                        answer: 'The International Olympic Committee',
+                        reward: 90
                     },
                     {
                         question: "Among the following athletes who won a gold medal for India in Olympics?",
                         options: ['PV Sindhu','Milkha Singh','Abhinav Bindra','Bajarang Punia'],
-                        answer: 'Abhinav Bindra'
+                        answer: 'Abhinav Bindra',
+                        reward: 100
                     }
                 ]
     },
@@ -237,6 +245,7 @@ blocks = [
         title: 'New Delhi',
         place: 'New Delhi',
         price: 440,
+        rent: 45,
         img: 'https://res.cloudinary.com/dc4kfswj7/image/upload/v1668803733/dsMp/new-delhi-india-_dpdmya.jpg',
         quiz: null
     },
@@ -246,38 +255,44 @@ blocks = [
         isPlayer2: false,
         title: 'Art & Culture',
         place: 'Ram Setu',
-        reward: 100,
+        img: 'https://res.cloudinary.com/dc4kfswj7/image/upload/v1668841708/dsMp/ahmad-odeh-UYtEI-acsuY-unsplash_bnp8y0.jpg',
         price: 0,
         quiz: [
             {
                 question: "The birth anniversary of which social reformer was celebrated on January 3?",
                 options: ['Narayana Guru','Vinoba Bhave','Pandita Ramabhai','Savitribai Phule'],
-                answer: 'Savitribai Phule'
+                answer: 'Savitribai Phule',
+                reward: 100
             },
             {
                 question: "Which Indian monument has found place in the Shanghai Cooperation Organisation's '8 Wonders of SCO' list?",
                 options: ['Taj Mahal','Statue of Unity','Konark Sun Temple','Ajanta Caves'],
-                answer: 'Statue of Unity'
+                answer: 'Statue of Unity',
+                reward: 105
             },
             {
                 question: "When is the national Tourism day celebrated across the country?",
                 options: ['January 23','January 24','January 25','January 26'],
-                answer: 'January 25'
+                answer: 'January 25',
+                reward: 110
             },
             {
-                question: "What does the globe in the ICC World Cup Trophy symbolise?",
-                options: ['World','All participating nations','Cricket Ball','Unity'],
-                answer: 'Cricket Ball'
+                question: "Ratna Ojha, who recently passed away was a theatre artist and activist of which state?",
+                options: ['Odisha', 'Meghalaya', 'Assam', 'West Bengal'],
+                answer: 'Assam',
+                reward: 150
             },
             {
                 question: "Which country recently set a Guinness World Record for the highest altitude fashion show event ever held?",
                 options: ['China','Nepal','India','Brazil'],
-                answer: 'Nepal'
+                answer: 'Nepal',
+                reward: 120
             },
             {
                 question: "Which film recently won the Oscar for best picture, which is also the first non- English film to win the award?",
                 options: ['Les Misérables','Irishman','Parasite','Border'],
-                answer: 'Parasite'
+                answer: 'Parasite',
+                reward: 105
             }
         ]
     },
@@ -288,6 +303,7 @@ blocks = [
         title: 'Pune',
         place: 'Pune',
         price: 448,
+        rent: 50,
         img: 'https://res.cloudinary.com/dc4kfswj7/image/upload/v1668803650/dsMp/336491271Pune_Shaniwar_Wada_dzrf2x.jpg',
         quiz: null
     },
@@ -298,6 +314,7 @@ blocks = [
         title: 'Jail',
         place: null,
         price: 0,
+        img: '',
         quiz: null        
     },
     {
@@ -307,6 +324,7 @@ blocks = [
         title: 'Amritsar',
         place: 'Amritsar',
         price: 459,
+        rent: 55,
         img: 'https://res.cloudinary.com/dc4kfswj7/image/upload/v1668803775/dsMp/ravi-n-jha-aU9yXmIwfkw-unsplash_g7plgm.jpg',
         quiz: null
     },
@@ -317,6 +335,7 @@ blocks = [
         title: 'Goa',
         place: 'Goa',
         price: 436,
+        rent: 40,
         img: 'https://res.cloudinary.com/dc4kfswj7/image/upload/v1668803680/dsMp/ashutosh-saraswat-CXyz3qljaH8-unsplash_kt8d3u.jpg',
         quiz: null
     },
@@ -326,38 +345,44 @@ blocks = [
         isPlayer2: false,
         title: 'Science & Technology',
         place: 'Bengaluru',
-        reward: 100,
+        img: 'https://res.cloudinary.com/dc4kfswj7/image/upload/v1668841727/dsMp/alexandre-debieve-FO7JIlwjOtU-unsplash_tlcdcv.jpg',
         price: 0,
         quiz: [
             {
                 question: "Which country recently launched a driver-less bullet train with the speed up to 350 km/h?",
                 options: ['Japan','China','Singapore','USA'],
-                answer: 'China'
+                answer: 'China',
+                reward: 120
             },
             {
                 question: "Global code hosting platform GitHub, which recently launched its operations in India, is owned by which technological company?",
                 options: ['Google','Microsoft','Amazon','Apple'],
-                answer: 'Microsoft'
+                answer: 'Microsoft',
+                reward: 110
             },
             {
-                question: "Which country has won the maximum number of medals in the all time history of Commonwealth Games?",
-                options: ['Australia','England','India','Canada'],
-                answer: 'Australia'
+                question: "BioAsia is an annual biotech and life sciences forum of which State Government?",
+                options: ['Odisha', 'Telangana', 'Kerala', 'Andhra Pradesh'],
+                answer: 'Telangana',
+                reward: 110
             },
             {
-                question: "What does the globe in the ICC World Cup Trophy symbolise?",
-                options: ['World','All participating nations','Cricket Ball','Unity'],
-                answer: 'Cricket Ball'
+                question: "'ASK DISHA' is an online chat-bot of which Indian organisation?",
+                options: ['IRCTC -Indian Railways Catering and Tourism Corporation', 'NPCI- National Payments Corporation of India', 'RBI- Reserve Bank of India', 'SEBI- Securities Exchange Board of India'],
+                answer: 'IRCTC -Indian Railways Catering and Tourism Corporation',
+                reward: 100
             },
             {
-                question: "Which organization awards the 'Pierre de Coubertin Medal'?",
-                options: ['The United Nations','The International Monetary Fund','The International Olympic Committee','The International Atomic Energy Agency'],
-                answer: 'The International Olympic Committee'
+                question: "Which major technology company has launched a new application named 'Sodar', to help people maintain distancing?",
+                options: ['Facebook', 'Amazon', 'Google', 'Apple'],
+                answer: 'Google',
+                reward: 120
             },
             {
-                question: "Among the following athletes who won a gold medal for India in Olympics?",
-                options: ['PV Sindhu','Milkha Singh','Abhinav Bindra','Bajarang Punia'],
-                answer: 'Abhinav Bindra'
+                question: "Where is Silicon Valley located?",
+                options: ['Norway','Northern California','Switzerland','Southern California'],
+                answer: 'Northern California',
+                reward: 100
             }
         ]
     },
@@ -377,6 +402,7 @@ blocks = [
         title: 'Chennai',
         place: 'Chennai',
         price: 460,
+        rent: 60,
         img: 'https://res.cloudinary.com/dc4kfswj7/image/upload/v1668803581/dsMp/resizer_jt4s2r.jpg',
         quiz: null
     },
@@ -395,19 +421,45 @@ blocks = [
         isPlayer2: false,
         title: 'Universe',
         place: 'DS Lab',
-        reward: 100,
+        img: 'https://res.cloudinary.com/dc4kfswj7/image/upload/v1668841695/dsMp/nasa-rTZW4f02zY8-unsplash_o0eoae.jpg',
         price: 0,
         quiz: [
             {
-                question: "What is the full form of MOM ?",
+                question: "What is the full form of MOM?",
                 options: ['Moon Orbiter Mission ', 'Mars Orbiter Mission' , 'Mangalayan Orbital Mission', 'Mutliverse of Madness'],
-                answer: 'Mars Orbiter Mission'
+                answer: 'Mars Orbiter Mission',
+                reward: 100,
             },
             {
-                question: "What is the full form of MOM ?",
-                options: ['Moon Orbiter Mission ', 'Mars Orbiter Mission' , 'Mangalayan Orbital Mission', 'Mutliverse of Madness'],
-                answer: 'Mars Orbiter Mission'
-            }
+                question: "How many natural satellites does Jupiter have?",
+                options: ['65-70', '55-60', '85-90', '75-80'],
+                answer: '75-80',
+                reward: 110,
+            },
+            {
+                question: "Who was the second person to step on Moon?",
+                options: ['Buzz Aldrin', 'Edwin Eldrin', 'Valentina Tereshkova', 'Yuri Gagarin'],
+                answer: 'Buzz Aldrin',
+                reward: 140,
+            },
+            {
+                question: "The largest volcano in the solar system is called Olympus Mons. Where is it?",
+                options: ['Venus', 'Uranus', 'Mars', 'Jupiter'],
+                answer: 'Mars',
+                reward: 120,
+            },
+            {
+                question: "Which planet in the solar system is said to be capable of floating on water?",
+                options: ['Saturn', 'Uranus', 'Mars', 'Jupiter'],
+                answer: 'Saturn',
+                reward: 100,
+            },
+            {
+                question: "How many constellations are recognized by the International Astronomical Union (IAU)?",
+                options: ['81', '86', '69', '88'],
+                answer: '88',
+                reward: 140,
+            },
         ]
     }
 ]

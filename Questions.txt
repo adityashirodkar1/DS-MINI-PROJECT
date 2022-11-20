@@ -1,0 +1,186 @@
+#Sports Questions:
+
+1.The famous football player Maradona belongs to which among the following countries?
+[A] Brazil
+[B] Chile
+[C] Argentina
+[D] Italy
+Ans = C
+
+2.Which of the following Indian Sports Team is also known as “The Bhangra Boys?
+[A] Cricket Team
+[B] Hockey Team
+[C] Kabaddi Team
+[D] Football Team
+Ans = D
+
+3.Which country has won the maximum number of medals in the all time history of Commonwealth Games?
+[A] Australia
+[B] England
+[C] India
+[D] Canada
+Ans = A 
+
+4.Which ICC World Cup was known as the Prudential Cup?
+[A] 1990
+[B] 1975
+[C] 1979
+[D] 1998
+Ans = B 
+
+5.What does the globe in the ICC World Cup Trophy symbolise?
+[A] World
+[B] All participating nations
+[C] Cricket Ball
+[D] Unity
+Ans = C 
+
+6.Which organization awards the “Pierre de Coubertin Medal”?
+[A] The United Nations
+[B] The International Monetary Fund
+[C] The International Olympic Committee
+[D] The International Atomic Energy Agency
+Ans = C 
+
+
+#Science & Tech Questions:
+
+1.Which country recently launched a driver-less bullet train with the speed up to 350 km/h?
+[A] Russia
+[B] China
+[C] Singapore
+[D] USA
+Ans = B 
+
+2.Global code hosting platform GitHub, which recently launched its operations in India, is owned by which technological company?
+[A] Google
+[B] Microsoft
+[C] Amazon
+[D] Apple
+Ans = B 
+
+3.BioAsia is an annual biotech and life sciences forum of which State Government?
+[A] Odisha
+[B] Telangana
+[C] Kerala
+[D] Andhra Pradesh
+Ans = B 
+
+4.‘ASK DISHA’ is an online chat-bot of which Indian organisation?
+[A] IRCTC -Indian Railways Catering and Tourism Corporation
+[B] NPCI- National Payments Corporation of India
+[C] RBI- Reserve Bank of India
+[D] SEBI- Securities Exchange Board of India
+Ans = A 
+
+5.An Ultra-violet(UV) Disinfection Tower named ‘UV blaster’ has been developed in India by which state-owned organisation?
+[A] HAL
+[B] DRDO
+[C] BHEL
+[D] BEL
+Ans = B 
+
+6.Which major technology company has launched a new application named ‘Sodar’, to help people maintain distancing?
+[A] Facebook
+[B] Amazon
+[C] Google
+[D] Apple
+Ans = C 
+
+
+#Art and Culture Questions:
+
+1.The birth anniversary of which social reformer was celebrated on January 3?
+[A] Narayana Guru
+[B] Vinoba Bhave
+[C] Pandita Ramabhai
+[D] Savitribai Phule
+Ans = D 
+
+2.Ratna Ojha, who recently passed away was a theatre artist and activist of which state?
+[A] Odisha
+[B] Meghalaya
+[C] Assam
+[D] West Bengal
+Ans = C 
+
+3.Which Indian monument has found place in the Shanghai Cooperation Organisation’s ‘8 Wonders of SCO’ list?
+[A] Taj Mahal
+[B] Statue of Unity
+[C] Konark Sun Temple
+[D] Ajanta Caves
+Ans = B 
+
+4.When is the national Tourism day celebrated across the country?
+[A] January 23
+[B] January 24
+[C] January 25
+[D] January 26
+Ans = C 
+
+5.Which country recently set a Guinness World Record for the highest altitude fashion show event ever held?
+[A] China
+[B] Nepal
+[C] India
+[D] Brazil
+Ans = B 
+
+6.Which film recently won the Oscar for best picture, which is also the first non- English film to win the award?
+[A] Les Misérables
+[B] Irishman
+[C] Parasite
+[D] Border
+Ans = C 
+
+
+#50 - 50 questions:
+
+1.Institute of Life Sciences (ILS), that has established stable cultures of coronavirus, is located in which state/UT?
+[A] New Delhi
+[B] Odisha
+[C] Uttar Pradesh
+[D] Gujarat
+Ans = B 
+
+2.What is the name of the microorganism decontamination device developed by CSIR- Central Scientific Instruments Organisation (CSIO)?
+[A] Suraksha
+[B] Shreyas
+[C] Samriddhi
+[D] Sweekar
+Ans = A 
+
+3.Thirty Meter Telescope (TMT), which was seen in the news recently, is proposed to be set up in which island?
+[A] Mauritius
+[B] Hawaii
+[C] Reunion
+[D] Comoros
+Ans = B 
+
+4.When is the International Day of Education observed every year ?
+[A] January 21
+[B] January 24
+[C] February 21
+[D] February 24
+Ans = B 
+
+5.The S-400 air defence missile systems will be delivered to India by which country?
+[A] Israel
+[B] USA
+[C] Russia
+[D] Finland
+Ans = C 
+
+6.Which country recently conducted the training launch the nuclear-capable surface-to-surface ballistic missile ‘Ghaznavi’?
+[A] Pakistan
+[B] Israel
+[C] Iran
+[D] Saudi Arabia
+Ans = A 
+
+7.‘PehleSafety’ is an Internet safety campaign of which major technological company?
+[A] Facebook
+[B] Microsoft
+[C] Google
+[D] Apple
+Ans = C 
+

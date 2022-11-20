@@ -1,18 +1,20 @@
-const express = require('express')
+const express = require('express');
 const app = express();
 const path = require('path');
-const ejsMate = require('ejs-mate')
+const ejsMate = require('ejs-mate');
 const list = require('./code');
 let users = []
 
 player1 = {
     points: 1000,
-    owned: []
+    owned: [],
+    chance: true
 }
 
 player2 = {
     points: 1000,
-    owned: []
+    owned: [],
+    chance: false
 }
 
 app.use(express.urlencoded({extended: true}));
@@ -32,11 +34,16 @@ app.get('/monopoly/1', (req,res) => {
     list.rollPlayer1(die)
     currentBlock = list.blockWherePlayer1()
     let title = list.blockWherePlayer1().object.title.substring(0,3);
+    player1.chance = false
+    player2.chance = true
     if(list.triggerQuiz1()){
         res.render('quiz', { p })
     }
     else if(currentBlock.object.title==='Power Up'){
         res.render('power')
+    }
+    else if(currentBlock.object.title==='Jail'){
+        res.render('jail', { currentBlock , p })
     }
     else{
         if(player1.owned.includes(currentBlock.object.title) === true)
@@ -55,11 +62,16 @@ app.get('/monopoly/2', (req,res) => {
     list.rollPlayer2(die)
     currentBlock = list.blockWherePlayer2()
     let title = list.blockWherePlayer2().object.title.substring(0,3);
+    player2.chance = false
+    player1.chance = true
     if(list.triggerQuiz2()){
         res.render('quiz', { p })
     }
     else if(currentBlock.object.title==='Power Up'){
         res.render('power')
+    }
+    else if(currentBlock.object.title==='Jail'){
+        res.render('jail', { currentBlock , p })
     }
     else{
         if(player2.owned.includes(currentBlock.object.title) === true)
@@ -101,36 +113,91 @@ app.post('/monopoly/2', (req,res) => {
     res.render('game', { list , currentBlock , users , player1 , player2 , details , p })
 })
 
-app.post('/monopoly/1/:answer', (req,res) => {
+app.post('/monopoly/1/:i', (req,res) => {
     let pay = 0
     let p = 1
-    const { answer } = req.params
+    const { i } = req.params
     currentBlock = list.blockWherePlayer1()
-    if(req.body.chosen===answer){
-        pay = currentBlock.object.reward
+    if(req.body.chosen===currentBlock.object.quiz[i].answer){
+        pay = currentBlock.object.quiz[i].reward
         player1.points = player1.points + pay;
+        console.log(pay)
     }
+    currentBlock.object.quiz.splice(i,1)
     res.render('game', { list , currentBlock , users , player1 , player2 , p })
 })
 
-app.post('/monopoly/2/:answer', (req,res) => {
+app.post('/monopoly/2/:i', (req,res) => {
     let pay = 0
     let p = 2
-    const { answer } = req.params
+    const { i } = req.params
     currentBlock = list.blockWherePlayer2()
-    if(req.body.chosen===answer){
-        pay = currentBlock.object.reward
+    if(req.body.chosen===currentBlock.object.quiz[i].answer){
+        pay = currentBlock.object.quiz[i].reward
         player2.points = player2.points + pay;
     }   
+    currentBlock.object.quiz.splice(i,1)
     res.render('game', { list , currentBlock , users , player1 , player2 , p })
 })
 
 app.post('/monopoly/1/atlas/:ans', (req,res) => {
-    res.send(req.body)
+    const { ans } = req.params
+    let pay = 0
+    let p = 1
+    currentBlock = list.blockWherePlayer1()
+    if(req.body.atlasAns===ans){
+        pay = currentBlock.object.reward
+        player1.points = player1.points + pay
+        console.log(pay)
+    }
+    res.render('game', { list , currentBlock , users , player1 , player2 , p })
 })
 
 app.post('/monopoly/2/atlas/:ans', (req,res) => {
-    res.send(req.body)
+    const { ans } = req.params
+    let pay = 0
+    let p = 2
+    currentBlock = list.blockWherePlayer2()
+    if(req.body.atlasAns===ans){
+        pay = currentBlock.object.reward
+        player2.points = player2.points + pay
+        console.log(pay)
+    }
+    res.render('game', { list , currentBlock , users , player1 , player2 , p })
+})
+
+app.get('/monopoly/1/jail', (req,res) => {
+    let p = 1
+    currentBlock = list.blockWherePlayer1()
+    let pay = parseInt(req.query.fine);
+    player1.points = player1.points - pay
+    res.render('game', { list , currentBlock , users , player1 , player2 , p })
+})
+
+app.get('/monopoly/2/jail', (req,res) => {
+    let p = 2
+    currentBlock = list.blockWherePlayer2()
+    let pay = parseInt(req.query.fine);
+    player2.points = player2.points - pay
+    res.render('game', { list , currentBlock , users , player1 , player2 , p })
+})
+
+app.get('/monopoly/1/rent', (req,res) => {
+    let p = 1
+    currentBlock = list.blockWherePlayer1()
+    let pay = parseInt(req.query.mortage);
+    player1.points = player1.points - pay
+    player2.points = player2.points + pay
+    res.render('game', { list , currentBlock , users , player1 , player2 , p })
+})
+
+app.get('/monopoly/2/rent', (req,res) => {
+    let p = 2
+    currentBlock = list.blockWherePlayer2()
+    let pay = parseInt(req.query.mortage);
+    player2.points = player2.points - pay
+    player1.points = player1.points + pay
+    res.render('game', { list , currentBlock , users , player1 , player2 , p })
 })
 
 app.listen(1286, () =>{

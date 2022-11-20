@@ -1,26 +1,28 @@
     <% layout('layouts/boilerplate') %>
     <div class="d-flex justify-content-center mt-3">
-        <form action="">
-            <h2 class="d-flex justify-content-center"><%= currentBlock.object.title %> is owned by <%= users[q] %> </h2>
-            <div>
-                Since you are on his land you will have to pay <%= currentBlock.object.price %> as the rent to <%= users[q] %>
-            </div>
-            <section class="d-inline-flex p-1">
-                <div class="mt-3">
-                    <label for="amount">Amount:</label>
-                    <input type="Number" id="amount">
+        <div class="card" style="width: 25rem;">
+            <div class="card-body">
+              <h5 class="card-title">Oopss!</h5>
+              <h6 class="card-subtitle mb-2 text-muted"><%= currentBlock.object.title %> is owned by <%= users[q] %></h6>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <p class="card-text">You will have to pay &#8377 <%= currentBlock.object.rent %> as the rent to <%= users[q] %></p>
+                </li> 
+                <% if(p===1){ %>
+                    <li class="list-group-item">Your Balance: &#8377 <%= player1.points %> </li>
+                  <% }else{ %>
+                    <li class="list-group-item">Your Balance: &#8377 <%= player2.points %> </li>
+                  <% } %>
+              </ul>
+              <form action="/monopoly/<%=p%>/rent" method="GET">
+                <div class="input-group flex-nowrap">
+                    <span class="input-group-text" id="addon-wrapping">&#8377</span>
+                    <input type="number" name="mortage" class="form-control" placeholder="Rent" aria-describedby="addon-wrapping">
                 </div>
-                <div>
-                    <% if(p===1){ %>
-                        (Your balance: <%= player1.points %>) 
-                    <% }else{ %>
-                        (Your balance: <%= player2.points %>) 
-                    <% } %>                
-                </div>
-            </section>
-            <div class="mt-3">
-                <button class="btn btn-primary">Pay</button>
+                <button class="btn btn-primary mt-2">Pay</button>
+              </form>
             </div>
-        </form>
+          </div>
     </div>
+    
    
