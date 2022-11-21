@@ -40,7 +40,7 @@ app.get('/monopoly/1', (req,res) => {
         res.render('quiz', { p })
     }
     else if(currentBlock.object.title==='Power Up'){
-        res.render('power')
+        res.render('power', { p })
     }
     else if(currentBlock.object.title==='Jail'){
         res.render('jail', { currentBlock , p })
@@ -68,7 +68,7 @@ app.get('/monopoly/2', (req,res) => {
         res.render('quiz', { p })
     }
     else if(currentBlock.object.title==='Power Up'){
-        res.render('power')
+        res.render('power', { p })
     }
     else if(currentBlock.object.title==='Jail'){
         res.render('jail', { currentBlock , p })
@@ -198,6 +198,10 @@ app.get('/monopoly/2/rent', (req,res) => {
     player2.points = player2.points - pay
     player1.points = player1.points + pay
     res.render('game', { list , currentBlock , users , player1 , player2 , p })
+})
+
+app.get('/monopoly/1/card', (req,res) => {
+    res.send(req.query)
 })
 
 app.listen(1286, () =>{
