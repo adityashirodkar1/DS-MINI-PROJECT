@@ -201,7 +201,81 @@ app.get('/monopoly/2/rent', (req,res) => {
 })
 
 app.get('/monopoly/1/card', (req,res) => {
-    res.send(req.query)
+    let p = 1;
+    if(req.query.whereTo){
+        currentBlock = list.blockWherePlayer1()
+        currentBlock.object.isPlayer1 = false;
+        list.teleport1(req.query.whereTo).object.isPlayer1 = true;
+        currentBlock = list.blockWherePlayer1()
+        if(list.triggerQuiz1()){
+            res.render('quiz', { p })
+        }
+        else if(currentBlock.object.title==='Power Up'){
+            res.render('power', { p })
+        }
+        else if(currentBlock.object.title==='Jail'){
+            res.render('jail', { currentBlock , p })
+        }
+        else{
+            if(player2.owned.includes(currentBlock.object.title) === true)
+                console.log('hu')
+            else if(player1.owned.includes(currentBlock.object.title) === false)
+                res.render('purchase', { list , currentBlock , users, player1 , player2 , p })
+            else
+                res.render('mortage', { currentBlock , users , q , p , player1 , player2})
+        }
+    }
+    else if(req.query.decision){
+        if(req.query.decision === 'agree'){
+            p = 2;
+            currentBlock = list.blockWherePlayer2()
+            currentBlock.object.isPlayer2 = false;
+            list.toJail().object.isPlayer2 = true;
+            res.render('jail', { p });
+        }
+        else{
+            res.render('game', { list , users , player1 , player2 , p })
+        }
+    }
+})
+
+app.get('/monopoly/2/card', (req,res) => {
+    let p = 2;
+    if(req.query.whereTo){
+        currentBlock = list.blockWherePlayer2()
+        currentBlock.object.isPlayer2 = false;
+        list.teleport1(req.query.whereTo).object.isPlayer2 = true;
+        currentBlock = list.blockWherePlayer2()
+        if(list.triggerQuiz2()){
+            res.render('quiz', { p })
+        }
+        else if(currentBlock.object.title==='Power Up'){
+            res.render('power', { p })
+        }
+        else if(currentBlock.object.title==='Jail'){
+            res.render('jail', { currentBlock , p })
+        }
+        else{
+            if(player1.owned.includes(currentBlock.object.title) === true)
+                console.log('hu')
+            else if(player2.owned.includes(currentBlock.object.title) === false)
+                res.render('purchase', { list , currentBlock , users, player1 , player2 , p })
+            else
+                res.render('mortage', { currentBlock , users , q , p , player1 , player2})
+        }
+    }
+    else if(req.query.decision){
+        if(req.query.decision === 'agree'){
+            p = 1;
+            currentBlock = list.blockWherePlayer1()
+            currentBlock.object.isPlayer1 = false;
+            list.toJail().object.isPlayer1 = true;
+            res.render('jail', { p });
+        }
+        else{
+            res.render('game', { list , users , player1 , player2 , p })
+        }
+    }
 })
 
 app.listen(1286, () =>{

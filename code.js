@@ -110,6 +110,26 @@ class CircularLinkedList extends LinkedList{
             return false
         }
     }
+
+    teleport1(where){
+        let ptr = this.head
+        for(let i=0;i<16;i++){
+            if(ptr.object.title===where){
+                return ptr;
+            }
+            ptr = ptr.next
+        }
+    }
+
+    toJail(){
+        let ptr = this.head
+        for(let i=0;i<16;i++){
+            if(ptr.object.title==='Jail'){
+                return ptr;
+            }
+            ptr = ptr.next
+        }
+    }
 }
 
 const list = new CircularLinkedList();
