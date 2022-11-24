@@ -1,11 +1,12 @@
     <% layout('layouts/boilerplate') %>
     <div class="d-flex justify-content-center mt-3">
-        <div class="card" style="width: 25rem;">
+        <div class="card" style="width: 33rem;">
             <div class="card-body">
-              <h5 class="card-title">Oopss!</h5>
+              <h5 class="card-title">Rent!</h5>
               <h6 class="card-subtitle mb-2 text-muted"><%= currentBlock.object.title %> is owned by <%= users[q] %></h6>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">
+                    <p><img src="https://res.cloudinary.com/dc4kfswj7/image/upload/v1669310316/dsMp/72079p_vok7bs.jpg" alt="owner" width="450px" height="350px"></p>
                     <p class="card-text">You will have to pay &#8377 <%= currentBlock.object.rent %> as the rent to <%= users[q] %></p>
                 </li> 
                 <% if(p===1){ %>

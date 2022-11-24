@@ -1,7 +1,11 @@
     <% layout('layouts/boilerplate') %>
         <div class="d-flex justify-content-center">
             <div class="card" style="width: 25rem;">
-                <img src="<%=currentBlock.object.img%>" class="card-img-top" alt="<%= currentBlock.object.title %>">
+                <% if(canBuy===false){ %>
+                  <img src="https://res.cloudinary.com/dc4kfswj7/image/upload/v1669125343/dsMp/citybalance_ukiwod.jpg" class="card-img-top" alt="YEAH">
+                <% }else{ %>
+                  <img src="<%=currentBlock.object.img%>" class="card-img-top" alt="<%= currentBlock.object.title %>">
+                <% } %> 
                 <div class="card-body">
                   <h5 class="card-title"><%= currentBlock.object.title %></h5>
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -17,11 +21,21 @@
                     <form action="/monopoly/<%=p%>" method="post">
                         <section>
                             <div class="mt-3">
+                              <% if(canBuy===false){ %>
+                                But if you really want to buy this city then you have the option to sell any of your owned city to the bank. What do you want to do?
+                              <% }else{ %>
                                 Do you want to buy <%= currentBlock.object.title %>? 
+                              <% } %> 
+                                
                             </div>
                             <div class="mt-3">
+                                <% if(canBuy===true){ %> 
                                 <button class="btn btn-primary" name="buy" value="on">Buy</button>
                                 <button class="btn btn-primary" name="pass" value="on">Pass</button>
+                                <% } else{ %> 
+                                <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#sell">Sell</a>
+                                <button class="btn btn-primary" name="pass" value="on">Pass</button>
+                                <% } %> 
                             </div>
                         </section>
                     </form>
@@ -33,3 +47,39 @@
                 </div> -->
               </div>
         </div>
+
+        <div class="modal fade" id="sell" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Selling your land</h5>
+                <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+              </div>
+              <form action="/monopoly/<%=p%>/sell">
+                <div class="modal-body">
+                  <p>
+                    <img src="https://res.cloudinary.com/dc4kfswj7/image/upload/v1669310854/dsMp/7208dd_jwxqzv.jpg" alt="BROKE" width="450px" height="350px">
+                  </p>
+                  <label class="form-label" for="teleport">Among the cities you have owned, which do want to sell? (to the Bank ofc)</label> <br>
+                  <select name="toSell" id="selling">
+                    <% if(p===1){ %>
+                      <%for(city of player1.owned){%>
+                        <option class="form-control" value="<%= city %>"><%= city %></option>
+                      <%}%>
+                    <% }else{ %>
+                      <%for(city of player2.owned){%>
+                        <option class="form-control" value="<%= city %>"><%= city %></option>
+                      <%}%>
+                    <% } %> 
+                    
+                </select>
+                </div>
+                <div class="modal-footer">
+                  <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                <button class="btn btn-primary" data-bs-dismiss="modal">Sell</button>
+              </form>
+              </div>
+            </div>
+          </div>
+
+          

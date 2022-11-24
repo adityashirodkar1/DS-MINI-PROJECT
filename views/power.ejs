@@ -76,16 +76,18 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <h5 class="modal-title" id="staticBackdropLabel">Lucky Bast*rd</h5>
+          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
         </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
-          <form action="/monopoly/<%=p%>/card"><button class="btn btn-primary" name="card" value="c1" data-bs-dismiss="modal">Okay</button></form>
-        </div>
+        <form action="/monopoly/<%=p%>/card">
+          <div class="modal-body">
+            You have now given 2 extra chances
+          </div>
+          <div class="modal-footer">
+            <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+            <button class="btn btn-primary" name="card" value="c1" data-bs-dismiss="modal">Okay</button>
+          </div>
+      </form>
       </div>
     </div>
   </div>
@@ -96,17 +98,22 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="staticBackdropLabel">Teleport</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
         </div>
         <form action="/monopoly/<%=p%>/card">
           <div class="modal-body">
             <p>You have gain the ability to teleport wherever you want in this board.</p>
-            <label for="teleport">Type here the name of the block where you want to teleport:</label>
-            <input type="text" name="whereTo" id="teleport">
+            <label class="form-label" for="teleport">Now where to teleport?</label>
+                <select name="whereTo" id="teleport">
+                    <%for(let i=0;i<16;i++){%>
+                        <option class="form-control" value="<%= list.getNodeAt(i).object.title %>"><%= list.getNodeAt(i).object.title %></option>
+                    <%}%>
+                </select>
           </div>
           <div class="modal-footer">
             <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
           <button class="btn btn-primary" name="card" value="c2" data-bs-dismiss="modal">Okay</button>
+        </div>
         </form>
         </div>
       </div>
@@ -119,12 +126,12 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="staticBackdropLabel">Corrupt Officer</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
         </div>
         <form action="/monopoly/<%=p%>/card">
           <div class="modal-body">
             <p>You have now the ability to send your opponent to JAIL! no matter where he is.</p>
-            <p>Type AGREE if you want to use this ability or else click DENY</p>
+            <p>Select AGREE if you want to use this ability or else click DENY</p>
             <input type="radio" id="agree" name="decision" value="agree">
             <label for="agree">AGREE</label>
             <input type="radio" id="deny" name="decision" value="deny">
@@ -133,26 +140,8 @@
           <div class="modal-footer">
             <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
           <button class="btn btn-primary" name="card" value="c3" data-bs-dismiss="modal">Okay</button>
+        </div>
         </form>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal 4-->
-  <div class="modal fade" id="card4" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
-          <form action="/monopoly/<%=p%>/card"><button class="btn btn-primary" name="card" value="c4" data-bs-dismiss="modal">Okay</button></form>
         </div>
       </div>
     </div>
