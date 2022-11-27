@@ -9,21 +9,61 @@
                     <p><img src="https://res.cloudinary.com/dc4kfswj7/image/upload/v1669310316/dsMp/72079p_vok7bs.jpg" alt="owner" width="450px" height="350px"></p>
                     <p class="card-text">You will have to pay &#8377 <%= currentBlock.object.rent %> as the rent to <%= users[q] %></p>
                 </li> 
-                <% if(p===1){ %>
+                  <% if(p===1){ %>
                     <li class="list-group-item">Your Balance: &#8377 <%= player1.points %> </li>
                   <% }else{ %>
                     <li class="list-group-item">Your Balance: &#8377 <%= player2.points %> </li>
                   <% } %>
+                  <% if(canPay===false){ %> 
+                    <li class="list-group-item">Well.... As we can both see you are not in the position to pay the rent. We will suggest you kindly sell any one of your lands to the Bank and then pay the rent.</li>
+                  <% } %> 
               </ul>
               <form action="/monopoly/<%=p%>/rent" method="GET">
                 <div class="input-group flex-nowrap">
                     <span class="input-group-text" id="addon-wrapping">&#8377</span>
                     <input type="number" name="mortage" class="form-control" placeholder="Rent" aria-describedby="addon-wrapping">
                 </div>
-                <button class="btn btn-primary mt-2">Pay</button>
+                <% if(canPay===true) {%> 
+                  <button class="btn btn-primary mt-2">Pay</button>
+                <% }else {%>
+                  <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#sellforjail">Sell</a>
+                <% } %> 
               </form>
             </div>
           </div>
     </div>
     
+    <div class="modal fade" id="sellforjail" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Selling your land</h5>
+            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+          </div>
+          <form action="/monopoly/<%=p%>/sell">
+            <div class="modal-body">
+              <p>
+                <img src="https://res.cloudinary.com/dc4kfswj7/image/upload/v1669310854/dsMp/7208dd_jwxqzv.jpg" alt="BROKE" width="450px" height="350px">
+              </p>
+              <label class="form-label" for="teleport">Among the cities you have owned, which do want to sell? (to the Bank ofc)</label> <br>
+              <select name="toSell" id="selling">
+                <% if(p===1){ %>
+                  <%for(city of player1.owned){%>
+                    <option class="form-control" value="<%= city %>"><%= city %></option>
+                  <%}%>
+                <% }else{ %>
+                  <%for(city of player2.owned){%>
+                    <option class="form-control" value="<%= city %>"><%= city %></option>
+                  <%}%>
+                <% } %> 
+                
+            </select>
+            </div>
+            <div class="modal-footer">
+              <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+            <button class="btn btn-primary" data-bs-dismiss="modal">Sell</button>
+          </form>
+          </div>
+        </div>
+      </div>
    

@@ -334,6 +334,7 @@ blocks = [
         title: 'Jail',
         place: null,
         price: 0,
+        fine: 50,
         img: '',
         quiz: null        
     },

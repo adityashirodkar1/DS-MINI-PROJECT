@@ -51,8 +51,15 @@ app.get('/monopoly/1', (req,res) => {
     else if(currentBlock.object.title==='Power Up'){
         res.render('power', { p , list })
     }
+    else if(currentBlock.object.id===14){
+        res.send('tax')
+    }
     else if(currentBlock.object.title==='Jail'){
-        res.render('jail', { currentBlock , p })
+        let canbail = true
+        if(player1.points - currentBlock.object.fine < 0){
+            canbail = false
+        }
+        res.render('jail', { currentBlock , p , canbail})
     }
     else{
         if(player1.owned.includes(currentBlock.object.title) === true)
@@ -64,8 +71,13 @@ app.get('/monopoly/1', (req,res) => {
             }
             res.render('purchase', { list , currentBlock , users, player1 , player2 , p , canBuy})
         }
-        else
-            res.render('mortage', { currentBlock , users , q , p , player1 , player2 })
+        else{
+            let canPay = true
+            if(player1.points - currentBlock.object.rent < 0){
+                canPay = false
+            }
+            res.render('mortage', { currentBlock , users , q , p , player1 , player2 , canPay })
+        }
     }
 })
 
@@ -92,7 +104,11 @@ app.get('/monopoly/2', (req,res) => {
         res.render('power', { p , list })
     }
     else if(currentBlock.object.title==='Jail'){
-        res.render('jail', { currentBlock , p })
+        let canbail = true
+        if(player2.points - currentBlock.object.fine < 0){
+            canbail = false
+        }
+        res.render('jail', { currentBlock , p , canbail})
     }
     else{
         if(player2.owned.includes(currentBlock.object.title) === true)
@@ -104,8 +120,13 @@ app.get('/monopoly/2', (req,res) => {
             }
             res.render('purchase', { list , currentBlock , users, player1 , player2 , p , canBuy })
         }
-        else
-            res.render('mortage', { currentBlock , users , q , p , player1 , player2})
+        else{
+            let canPay = true
+            if(player2.points - currentBlock.object.rent < 0){
+                canPay = false
+            }
+            res.render('mortage', { currentBlock , users , q , p , player1 , player2 , canPay })
+        }
     }
 })
 
@@ -237,7 +258,11 @@ app.get('/monopoly/1/card', (req,res) => {
             res.render('power', { p , list })
         }
         else if(currentBlock.object.title==='Jail'){
-            res.render('jail', { currentBlock , p })
+            let canbail = true
+            if(player1.points - currentBlock.object.fine < 0){
+                canbail = false
+            }
+            res.render('jail', { currentBlock , p , canbail})
         }
         else{
             if(player1.owned.includes(currentBlock.object.title) === true)
@@ -249,8 +274,13 @@ app.get('/monopoly/1/card', (req,res) => {
                 }
                 res.render('purchase', { list , currentBlock , users, player1 , player2 , p , canBuy})
             }
-            else
-                res.render('mortage', { currentBlock , users , q , p , player1 , player2 })
+            else{
+                let canPay = true
+                if(player1.points - currentBlock.object.rent < 0){
+                    canPay = false
+                }
+                res.render('mortage', { currentBlock , users , q , p , player1 , player2 , canPay })
+            }
         }
     }
     else if(req.query.decision){
@@ -281,7 +311,11 @@ app.get('/monopoly/2/card', (req,res) => {
             res.render('power', { p , list })
         }
         else if(currentBlock.object.title==='Jail'){
-            res.render('jail', { currentBlock , p })
+            let canbail = true
+            if(player1.points - currentBlock.object.fine < 0){
+                canbail = false
+            }
+            res.render('jail', { currentBlock , p , canbail})
         }
         else{
             if(player2.owned.includes(currentBlock.object.title) === true)
@@ -293,8 +327,13 @@ app.get('/monopoly/2/card', (req,res) => {
                 }
                 res.render('purchase', { list , currentBlock , users, player1 , player2 , p , canBuy})
             }
-            else
-                res.render('mortage', { currentBlock , users , q , p , player1 , player2 })
+            else{
+                let canPay = true
+                if(player2.points - currentBlock.object.rent < 0){
+                    canPay = false
+                }
+                res.render('mortage', { currentBlock , users , q , p , player1 , player2 , canPay })
+            }
         }
     }
     else if(req.query.decision){
@@ -311,7 +350,7 @@ app.get('/monopoly/2/card', (req,res) => {
     }
 })
 
-app.get('/monopoly/1/sell', (req,res) => {
+app.get('/monopoly/1/sell/:place', (req,res) => {
     let p = 1
     land = list.teleport1(req.query.toSell)
     let pay = land.object.price
@@ -321,8 +360,15 @@ app.get('/monopoly/1/sell', (req,res) => {
             player1.owned.splice(i,1);
         }
     }
-    console.log(player1.owned)
-    res.render('game', { list , users , player1 , player2 , p })
+    currentBlock = list.blockWherePlayer1()
+    currentBlock.object.isPlayer1 = false;
+    currentBlock = list.teleport1(req.params.place)
+    currentBlock.object.isPlayer1 = true;
+    let canBuy = true
+    if(player1.points - currentBlock.object.price < 0){
+        canBuy = false
+    }
+    res.render('purchase', { list , currentBlock , users, player1 , player2 , p , canBuy})
 })
 
 app.get('/monopoly/2/sell', (req,res) => {
@@ -335,7 +381,15 @@ app.get('/monopoly/2/sell', (req,res) => {
             player2.owned.splice(i,1);
         }
     }
-    res.render('game', { list , users , player1 , player2 , p })
+    currentBlock = list.blockWherePlayer2()
+    currentBlock.object.isPlayer2 = false;
+    currentBlock = list.teleport1(req.params.place)
+    currentBlock.object.isPlayer2 = true;
+    let canBuy = true
+    if(player2.points - currentBlock.object.price < 0){
+        canBuy = false
+    }
+    res.render('purchase', { list , currentBlock , users, player1 , player2 , p , canBuy})
 })
 
 app.listen(1286, () =>{

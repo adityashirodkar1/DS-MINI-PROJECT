@@ -103,6 +103,9 @@
         <form action="/monopoly/<%=p%>/card">
           <div class="modal-body">
             <p>You have gain the ability to teleport wherever you want in this board.</p>
+            <p>
+              <img src="https://res.cloudinary.com/dc4kfswj7/image/upload/v1669555893/dsMp/729nxf_tmpofz.jpg" alt="BROKE" width="450px" height="350px">
+            </p>
             <label class="form-label" for="teleport">Now where to teleport?</label>
                 <select name="whereTo" id="teleport">
                     <%for(let i=0;i<16;i++){%>
@@ -131,9 +134,12 @@
         <form action="/monopoly/<%=p%>/card">
           <div class="modal-body">
             <p>You have now the ability to send your opponent to JAIL! no matter where he is.</p>
+            <p>
+              <img src="https://res.cloudinary.com/dc4kfswj7/image/upload/v1669556321/dsMp/729oj6_absge4.jpg" alt="BROKE" width="450px" height="350px">
+            </p>
             <p>Select AGREE if you want to use this ability or else click DENY</p>
             <input type="radio" id="agree" name="decision" value="agree">
-            <label for="agree">AGREE</label>
+            <label for="agree">AGREE</label><br>
             <input type="radio" id="deny" name="decision" value="deny">
             <label for="deny">DENY</label>
           </div>
