@@ -1,0 +1,21 @@
+<% layout('layouts/boilerplate') %>
+<div class="d-flex justify-content-center mt-3">
+  <div class="card" style="width: 25rem;">
+      <img src="https://res.cloudinary.com/dc4kfswj7/image/upload/v1669702890/dsMp/72gsxq_ja7i1j.jpg" class="card-img-top" alt="Tax">
+      <div class="card-body">
+        <h5 class="card-title">Monopoly Tax</h5>
+        <p class="card-text">Alright! Pay the necessary tax which &#8377 100 (We are not requesting)</p>
+        <form action="/monopoly/<%=p%>/tax" method="GET">
+          <div class="input-group flex-nowrap">
+              <span class="input-group-text" id="addon-wrapping">&#8377</span>
+              <input type="number" name="fine" class="form-control" placeholder="Fine" aria-describedby="addon-wrapping">
+          </div>
+          <% if(canPay===true){ %> 
+              <button class="btn btn-primary mt-2">Pay</button>
+          <% }else{ %>
+              <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#sellforjail">Sell</a>
+          <% } %> 
+        </form>
+      </div>
+    </div>
+</div>

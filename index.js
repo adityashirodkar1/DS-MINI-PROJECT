@@ -52,7 +52,11 @@ app.get('/monopoly/1', (req,res) => {
         res.render('power', { p , list })
     }
     else if(currentBlock.object.id===14){
-        res.send('tax')
+        canPay = true
+        if(player1.points - 100 < 0){
+            canPay = false
+        } 
+        res.render('tax', { p , canPay })
     }
     else if(currentBlock.object.title==='Jail'){
         let canbail = true
@@ -102,6 +106,13 @@ app.get('/monopoly/2', (req,res) => {
     }
     else if(currentBlock.object.title==='Power Up'){
         res.render('power', { p , list })
+    }
+    else if(currentBlock.object.id===14){
+        canPay = true
+        if(player2.points - 100 < 0){
+            canPay = false
+        } 
+        res.render('tax', { p , canPay })
     }
     else if(currentBlock.object.title==='Jail'){
         let canbail = true
@@ -262,7 +273,7 @@ app.get('/monopoly/1/card', (req,res) => {
             if(player1.points - currentBlock.object.fine < 0){
                 canbail = false
             }
-            res.render('jail', { currentBlock , p , canbail})
+            res.render('jail', { currentBlock , p , canbail })
         }
         else{
             if(player1.owned.includes(currentBlock.object.title) === true)
@@ -289,7 +300,11 @@ app.get('/monopoly/1/card', (req,res) => {
             currentBlock = list.blockWherePlayer2()
             currentBlock.object.isPlayer2 = false;
             list.toJail().object.isPlayer2 = true;
-            res.render('jail', { p });
+            let canbail = true
+            if(player2.points - currentBlock.object.fine < 0){
+                canbail = false
+            }
+            res.render('jail', { currentBlock , p , canbail })
         }
         else{
             res.render('game', { list , users , player1 , player2 , p })
@@ -315,7 +330,7 @@ app.get('/monopoly/2/card', (req,res) => {
             if(player1.points - currentBlock.object.fine < 0){
                 canbail = false
             }
-            res.render('jail', { currentBlock , p , canbail})
+            res.render('jail', { currentBlock , p , canbail })
         }
         else{
             if(player2.owned.includes(currentBlock.object.title) === true)
@@ -342,7 +357,11 @@ app.get('/monopoly/2/card', (req,res) => {
             currentBlock = list.blockWherePlayer1()
             currentBlock.object.isPlayer1 = false;
             list.toJail().object.isPlayer1 = true;
-            res.render('jail', { p });
+            let canbail = true
+            if(player1.points - currentBlock.object.fine < 0){
+                canbail = false
+            }
+            res.render('jail', { currentBlock , p , canbail })
         }
         else{
             res.render('game', { list , users , player1 , player2 , p })
@@ -390,6 +409,18 @@ app.get('/monopoly/2/sell', (req,res) => {
         canBuy = false
     }
     res.render('purchase', { list , currentBlock , users, player1 , player2 , p , canBuy})
+})
+
+app.get('/monopoly/1/tax', (req,res) => {
+    let p = 1
+    player1.points = player1.points - 100
+    res.render('game', { list , users , player1 , player2 , p })
+})
+
+app.get('/monopoly/2/tax', (req,res) => {
+    let p = 2
+    player2.points = player2.points - 100
+    res.render('game', { list , users , player1 , player2 , p })
 })
 
 app.listen(1286, () =>{

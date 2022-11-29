@@ -65,12 +65,19 @@
             height: 20px;
             background-color: red;
         }
+        .outer {
+            display: inline-block;
+            height : 100px ;
+            width : 520px ;
+            margin-left : 370px ; 
+        }
+
     </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
   <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -86,13 +93,14 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
 
 
     <div class="game">
         
         <div class="row1">
+            <div class="outer">
             <% for(let i=4;i<9;i++){ %>
                 <% if(list.getNodeAt(i).object.title.substring(0,3)==='Pow' || list.getNodeAt(i).object.title.substring(0,3)==='Jai') {%>
                     <div class="container1" id="powjail">
@@ -100,10 +108,10 @@
                             <div class="<%=list.getNodeAt(i).object.title.substring(0,4)%>"></div>
                             <div class="title"><%= list.getNodeAt(i).object.title %></div>
                             <% if(list.getNodeAt(i).object.title.substring(0,3)==='Pow'){ %> 
-                                <div>q</div>
+                                <br>
                                 <div>&#9889</div>
                             <% }else{ %> 
-                                <div>q</div>
+                                <br>
                                 <div>&#9760</div>
                             <% } %> 
                         </div>
@@ -114,24 +122,26 @@
                             <div class="<%=list.getNodeAt(i).object.title.substring(0,4)%>"></div>
                             <div class="title"><%= list.getNodeAt(i).object.title %></div>
                             <% if(list.getNodeAt(i).object.price!==0){ %> 
-                                <div>q</div>
-                                <div class="points"><%= list.getNodeAt(i).object.price %> points</div>
+                                <br>
+                                <div class="points">&#8377 <%= list.getNodeAt(i).object.price %></div>
                             <% }else{ %> 
-                                <div>q</div>
+                                <br>
                                 <div class="points">Quiz</div>
                             <% } %>     
                         </div>
                     </div>
                 <% } %> 
             <% } %> 
+                </div>
         </div>
 
         <div class="row2">
+            <div class="outer">
             <div class="container2">
                 <div id="<%=list.getNodeAt(3).object.title.substring(0,3)%>"> 
                     <div class="<%=list.getNodeAt(3).object.title.substring(0,4)%>"></div>
                     <div class="title"><%= list.getNodeAt(3).object.title %></div>
-                    <div>q</div>
+                    <br>
                     <div class="points">Quiz</div>
                 </div>
             </div>
@@ -160,19 +170,21 @@
                 <div id="<%=list.getNodeAt(9).object.title.substring(0,3)%>"> 
                     <div class="<%=list.getNodeAt(9).object.title.substring(0,4)%>"></div>
                     <div class="title"><%= list.getNodeAt(9).object.title %></div>
-                    <div>q</div>
-                    <div class="points"><%= list.getNodeAt(9).object.price %> points</div>
+                    <br>
+                    <div class="points">&#8377 <%= list.getNodeAt(9).object.price %></div>
                 </div>
             </div>
         </div>
+        </div>
 
         <div class="row3">
+            <div class="outer">
             <div class="container3">
                 <div id="<%=list.getNodeAt(2).object.title.substring(0,3)%>"> 
                     <div class="<%=list.getNodeAt(2).object.title.substring(0,4)%>"></div>
                     <div class="title"><%= list.getNodeAt(2).object.title %></div>
-                    <div>q</div>
-                    <div class="points"><%= list.getNodeAt(2).object.price %> points</div>
+                    <br>
+                    <div class="points">&#8377 <%= list.getNodeAt(2).object.price %></div>
                 </div>
             </div>
             <div class="container3" id="c2">
@@ -200,19 +212,21 @@
                 <div id="<%=list.getNodeAt(10).object.title.substring(0,3)%>"> 
                     <div class="<%=list.getNodeAt(10).object.title.substring(0,4)%>"></div>
                     <div class="title"><%= list.getNodeAt(10).object.title %></div>
-                    <div>q</div>
-                    <div class="points"><%= list.getNodeAt(10).object.price %> points</div>
+                    <br>
+                    <div class="points">&#8377 <%= list.getNodeAt(10).object.price %></div>
                 </div>
             </div>
         </div>
+        </div>
 
         <div class="row4">
+            <div class="outer">
             <div class="container4">
                 <div id="<%=list.getNodeAt(1).object.title.substring(0,3)%>"> 
                     <div class="<%=list.getNodeAt(1).object.title.substring(0,4)%>"></div>
                     <div class="title"><%= list.getNodeAt(1).object.title %></div>
-                    <div>q</div>
-                    <div class="points"><%= list.getNodeAt(1).object.price %> points</div>
+                    <br>
+                    <div class="points">Quiz</div>
                 </div>
             </div>
             <div class="container4" id="c2">
@@ -243,9 +257,11 @@
                     <div class="points">Quiz</div>
                 </div>
             </div>
+            </div>
         </div>
 
         <div class="row5">
+            <div class="outer">
             <div class="container5" id="start">
                 <div id="<%=list.getNodeAt(0).object.title.substring(0,3)%>">
                     <div class="<%=list.getNodeAt(0).object.title.substring(0,4)%>"></div>
@@ -269,12 +285,12 @@
                             <div class="<%=list.getNodeAt(i).object.title.substring(0,4)%>"></div>
                             <div class="title"><%= list.getNodeAt(i).object.title %></div>
                             <% if(list.getNodeAt(i).object.price!==0){ %> 
-                                <div>q</div>
-                                <div class="points"><%= list.getNodeAt(i).object.price %> points</div>
+                                <br>
+                                <div class="points">&#8377 <%= list.getNodeAt(i).object.price %></div>
                             <% }else if(list.getNodeAt(i).object.title=='Monopoly Tax'){ %> 
-                                <div class="points">100 points</div>
+                                <div class="points">&#8377 100</div>
                             <% } else{ %>
-                                <div>q</div>
+                                <br>
                                 <div class="points">Quiz</div>
                             <% } %> 
                         </div>
@@ -282,9 +298,10 @@
                 <% } %> 
             <% } %> 
         </div>
+        </div>
     </div>
         
-        <div class="row">
+        <div class="row mt-5">
             <div class="col-sm-6">
               <div class="card <%= (player1.chance===true ? 'card text-white bg-dark mb-3' : '') %> mb-3">
                 <h5 class="card-header"><%= users[0] %></h5>
