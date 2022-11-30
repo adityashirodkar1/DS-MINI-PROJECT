@@ -30,114 +30,143 @@ app.get('/', (req,res) => {
 })
 
 app.get('/monopoly/1', (req,res) => {
-    let die = Math.floor(Math.random()*3 + 1);
-    const p = 1;
-    const q = 1;
-    list.rollPlayer1(die)
-    currentBlock = list.blockWherePlayer1()
-    if(currentBlock.object.id===3 || currentBlock.object.id===4 || currentBlock.object.id===5){
-        count = 1
-    }
-    if((currentBlock.object.id===0 || currentBlock.object.id===1 || currentBlock.object.id===2) && count===1){
-        player1.points += 500
-        count = 0
-    }
-    let title = list.blockWherePlayer1().object.title.substring(0,3);
-    player1.chance = false
-    player2.chance = true
-    if(list.triggerQuiz1()){
-        res.render('quiz', { p })
-    }
-    else if(currentBlock.object.title==='Power Up'){
-        res.render('power', { p , list })
-    }
-    else if(currentBlock.object.id===14){
-        canPay = true
-        if(player1.points - 100 < 0){
-            canPay = false
-        } 
-        res.render('tax', { p , canPay })
-    }
-    else if(currentBlock.object.title==='Jail'){
-        let canbail = true
-        if(player1.points - currentBlock.object.fine < 0){
-            canbail = false
+    if(player1.chance===true){
+        let die = Math.floor(Math.random()*3 + 1);
+        const p = 1;
+        const q = 1;
+        list.rollPlayer1(die)
+        currentBlock = list.blockWherePlayer1()
+        currentBlock1 = list.blockWherePlayer1()
+        currentBlock2 = list.blockWherePlayer2()
+        if(currentBlock.object.id===3 || currentBlock.object.id===4 || currentBlock.object.id===5){
+            count = 1
         }
-        res.render('jail', { currentBlock , p , canbail})
-    }
-    else{
-        if(player1.owned.includes(currentBlock.object.title) === true)
-            res.render('game', { list  , users , player1 , player2 , details , p })
-        else if(player2.owned.includes(currentBlock.object.title) === false){
-            let canBuy = true
-            if(player1.points - currentBlock.object.price < 0){
-                canBuy = false
+        if((currentBlock.object.id===0 || currentBlock.object.id===1 || currentBlock.object.id===2) && count===1){
+            player1.points += 500
+            count = 0
+        }
+        let title = list.blockWherePlayer1().object.title.substring(0,3);
+        player1.chance = false
+        player2.chance = true
+        if(list.triggerQuiz1()){
+            res.render('quiz', { p })
+        }
+        else if(currentBlock.object.title==='Power Up'){
+            res.render('power', { p , list })
+        }
+        else if(currentBlock.object.id===12){
+            res.render('game', { list  , users , player1 , player2 , p , currentBlock1 , currentBlock2 })
+        }
+        else if(currentBlock.object.id===0){
+            res.render('game', { list  , users , player1 , player2 , p , currentBlock1 , currentBlock2 })
+        }
+        else if(currentBlock.object.id===14){
+            canPay = true
+            if(player1.points - 100 < 0){
+                canPay = false
+            } 
+            res.render('tax', { p , canPay })
+        }
+        else if(currentBlock.object.title==='Jail'){
+            let canbail = true
+            if(player1.points - currentBlock.object.fine < 0){
+                canbail = false
             }
-            res.render('purchase', { list , currentBlock , users, player1 , player2 , p , canBuy})
+            res.render('jail', { currentBlock , p , canbail})
         }
         else{
-            let canPay = true
-            if(player1.points - currentBlock.object.rent < 0){
-                canPay = false
+            if(player1.owned.includes(currentBlock.object.title) === true)
+                res.render('game', { list  , users , player1 , player2 , p , currentBlock1 , currentBlock2 })
+            else if(player2.owned.includes(currentBlock.object.title) === false){
+                let canBuy = true
+                if(player1.points - currentBlock.object.price < 0){
+                    canBuy = false
+                }
+                res.render('purchase', { list , currentBlock , users, player1 , player2 , p , canBuy})
             }
-            res.render('mortage', { currentBlock , users , q , p , player1 , player2 , canPay })
+            else{
+                let canPay = true
+                if(player1.points - currentBlock.object.rent < 0){
+                    canPay = false
+                }
+                res.render('mortage', { currentBlock , users , q , p , player1 , player2 , canPay })
+            }
         }
+    }
+    else{
+        currentBlock = list.blockWherePlayer1()
+        res.render('game', { list  , users , player1 , player2 , currentBlock1 , currentBlock2 })
     }
 })
 
 app.get('/monopoly/2', (req,res) => {
-    let die = Math.floor(Math.random()*3 + 1);
-    const p = 2;
-    const q = 0;
-    list.rollPlayer2(die)
-    currentBlock = list.blockWherePlayer2()
-    if(currentBlock.object.id===3 || currentBlock.object.id===4 || currentBlock.object.id===5){
-        count2 = 1
-    }
-    if((currentBlock.object.id===0 || currentBlock.object.id===1 || currentBlock.object.id===2) && count2===1){
-        player2.points += 500
-        count2 = 0
-    }
-    let title = list.blockWherePlayer2().object.title.substring(0,3);
-    player2.chance = false
-    player1.chance = true
-    if(list.triggerQuiz2()){
-        res.render('quiz', { p })
-    }
-    else if(currentBlock.object.title==='Power Up'){
-        res.render('power', { p , list })
-    }
-    else if(currentBlock.object.id===14){
-        canPay = true
-        if(player2.points - 100 < 0){
-            canPay = false
-        } 
-        res.render('tax', { p , canPay })
-    }
-    else if(currentBlock.object.title==='Jail'){
-        let canbail = true
-        if(player2.points - currentBlock.object.fine < 0){
-            canbail = false
+    if(player2.chance===true){
+        let die = Math.floor(Math.random()*3 + 1);
+        const p = 2;
+        const q = 0;
+        list.rollPlayer2(die)
+        currentBlock = list.blockWherePlayer2()
+        currentBlock1 = list.blockWherePlayer1()
+        currentBlock2 = list.blockWherePlayer2()
+        if(currentBlock.object.id===3 || currentBlock.object.id===4 || currentBlock.object.id===5){
+            count2 = 1
         }
-        res.render('jail', { currentBlock , p , canbail})
-    }
-    else{
-        if(player2.owned.includes(currentBlock.object.title) === true)
-            res.render('game', { list  , users , player1 , player2 , details , p })
-        else if(player1.owned.includes(currentBlock.object.title) === false){
-            let canBuy = true
-            if(player2.points - currentBlock.object.price < 0){
-                canBuy = false
+        if((currentBlock.object.id===0 || currentBlock.object.id===1 || currentBlock.object.id===2) && count2===1){
+            player2.points += 500
+            count2 = 0
+        }
+        let title = list.blockWherePlayer2().object.title.substring(0,3);
+        player2.chance = false
+        player1.chance = true
+        if(list.triggerQuiz2()){
+            res.render('quiz', { p })
+        }
+        else if(currentBlock.object.title==='Power Up'){
+            res.render('power', { p , list })
+        }
+        else if(currentBlock.object.id===14){
+            canPay = true
+            if(player2.points - 100 < 0){
+                canPay = false
+            } 
+            res.render('tax', { p , canPay })
+        }
+        else if(currentBlock.object.id===12){
+            res.render('game', { list  , users , player1 , player2 , p , currentBlock1 , currentBlock2 })
+        }
+        else if(currentBlock.object.id===0){
+            res.render('game', { list  , users , player1 , player2 , p , currentBlock1 , currentBlock2 })
+        }
+        else if(currentBlock.object.title==='Jail'){
+            let canbail = true
+            if(player2.points - currentBlock.object.fine < 0){
+                canbail = false
             }
-            res.render('purchase', { list , currentBlock , users, player1 , player2 , p , canBuy })
+            res.render('jail', { currentBlock , p , canbail})
         }
         else{
-            let canPay = true
-            if(player2.points - currentBlock.object.rent < 0){
-                canPay = false
+            if(player2.owned.includes(currentBlock.object.title) === true)
+                res.render('game', { list  , users , player1 , player2 , p , currentBlock1 , currentBlock2 })
+            else if(player1.owned.includes(currentBlock.object.title) === false){
+                let canBuy = true
+                if(player2.points - currentBlock.object.price < 0){
+                    canBuy = false
+                }
+                res.render('purchase', { list , currentBlock , users, player1 , player2 , p , canBuy })
             }
-            res.render('mortage', { currentBlock , users , q , p , player1 , player2 , canPay })
+            else{
+                let canPay = true
+                if(player2.points - currentBlock.object.rent < 0){
+                    canPay = false
+                }
+                res.render('mortage', { currentBlock , users , q , p , player1 , player2 , canPay })
+            }
         }
+    }
+    else{
+        currentBlock1 = list.blockWherePlayer1()
+        currentBlock2 = list.blockWherePlayer2()
+        res.render('game', { list  , users , player1 , player2 , currentBlock1 , currentBlock2 })
     }
 })
 
@@ -148,12 +177,14 @@ app.post('/monopoly/1', (req,res) => {
     users.push(req.body.user1)
     users.push(req.body.user2)
     currentBlock = list.blockWherePlayer1()
+    currentBlock1 = list.blockWherePlayer1()
+    currentBlock2 = list.blockWherePlayer2()
     if(details.buy==='on'){
         pay = currentBlock.object.price;
         player1.owned.push(currentBlock.object.title);
     }
     player1.points = player1.points - pay;
-    res.render('game', { list , currentBlock , users , player1 , player2 , details , p })
+    res.render('game', { list , currentBlock1 , currentBlock2 , users , player1 , player2 , details , p })
 })
 
 app.post('/monopoly/2', (req,res) => {
@@ -163,12 +194,14 @@ app.post('/monopoly/2', (req,res) => {
     users.push(req.body.user1)
     users.push(req.body.user2)
     currentBlock = list.blockWherePlayer2()
+    currentBlock1 = list.blockWherePlayer1()
+    currentBlock2 = list.blockWherePlayer2()
     if(details.buy==='on'){
         pay = currentBlock.object.price;
         player2.owned.push(currentBlock.object.title);
     }
     player2.points = player2.points - pay;
-    res.render('game', { list , currentBlock , users , player1 , player2 , details , p })
+    res.render('game', { list , currentBlock1 , currentBlock2 , users , player1 , player2 , details , p })
 })
 
 app.post('/monopoly/1/:i', (req,res) => {
@@ -176,12 +209,14 @@ app.post('/monopoly/1/:i', (req,res) => {
     let p = 1
     const { i } = req.params
     currentBlock = list.blockWherePlayer1()
+    currentBlock1 = list.blockWherePlayer1()
+    currentBlock2 = list.blockWherePlayer2()
     if(req.body.chosen===currentBlock.object.quiz[i].answer){
         pay = currentBlock.object.quiz[i].reward
         player1.points = player1.points + pay;
     }
     currentBlock.object.quiz.splice(i,1)
-    res.render('game', { list , currentBlock , users , player1 , player2 , p })
+    res.render('game', { list , currentBlock1 , currentBlock2 , users , player1 , player2 , p })
 })
 
 app.post('/monopoly/2/:i', (req,res) => {
@@ -189,12 +224,14 @@ app.post('/monopoly/2/:i', (req,res) => {
     let p = 2
     const { i } = req.params
     currentBlock = list.blockWherePlayer2()
+    currentBlock1 = list.blockWherePlayer1()
+    currentBlock2 = list.blockWherePlayer2()
     if(req.body.chosen===currentBlock.object.quiz[i].answer){
         pay = currentBlock.object.quiz[i].reward
         player2.points = player2.points + pay;
     }   
     currentBlock.object.quiz.splice(i,1)
-    res.render('game', { list , currentBlock , users , player1 , player2 , p })
+    res.render('game', { list , currentBlock1 , currentBlock2 , users , player1 , player2 , p })
 })
 
 app.post('/monopoly/1/atlas/:ans', (req,res) => {
@@ -202,11 +239,13 @@ app.post('/monopoly/1/atlas/:ans', (req,res) => {
     let pay = 0
     let p = 1
     currentBlock = list.blockWherePlayer1()
+    currentBlock1 = list.blockWherePlayer1()
+    currentBlock2 = list.blockWherePlayer2()
     if(req.body.atlasAns===ans){
         pay = currentBlock.object.reward
         player1.points = player1.points + pay
     }
-    res.render('game', { list , currentBlock , users , player1 , player2 , p })
+    res.render('game', { list , currentBlock1 , currentBlock2 , users , player1 , player2 , p })
 })
 
 app.post('/monopoly/2/atlas/:ans', (req,res) => {
@@ -214,51 +253,63 @@ app.post('/monopoly/2/atlas/:ans', (req,res) => {
     let pay = 0
     let p = 2
     currentBlock = list.blockWherePlayer2()
+    currentBlock1 = list.blockWherePlayer1()
+    currentBlock2 = list.blockWherePlayer2()
     if(req.body.atlasAns===ans){
         pay = currentBlock.object.reward
         player2.points = player2.points + pay
     }
-    res.render('game', { list , currentBlock , users , player1 , player2 , p })
+    res.render('game', { list , currentBlock1 , currentBlock2 , users , player1 , player2 , p })
 })
 
 app.get('/monopoly/1/jail', (req,res) => {
     let p = 1
     currentBlock = list.blockWherePlayer1()
+    currentBlock1 = list.blockWherePlayer1()
+    currentBlock2 = list.blockWherePlayer2()
     let pay = parseInt(req.query.fine);
     player1.points = player1.points - pay
-    res.render('game', { list , currentBlock , users , player1 , player2 , p })
+    res.render('game', { list , currentBlock1 , currentBlock2 , users , player1 , player2 , p })
 })
 
 app.get('/monopoly/2/jail', (req,res) => {
     let p = 2
     currentBlock = list.blockWherePlayer2()
+    currentBlock1 = list.blockWherePlayer1()
+    currentBlock2 = list.blockWherePlayer2()
     let pay = parseInt(req.query.fine);
     player2.points = player2.points - pay
-    res.render('game', { list , currentBlock , users , player1 , player2 , p })
+    res.render('game', { list , currentBlock1 , currentBlock2 , users , player1 , player2 , p })
 })
 
 app.get('/monopoly/1/rent', (req,res) => {
     let p = 1
     currentBlock = list.blockWherePlayer1()
+    currentBlock1 = list.blockWherePlayer1()
+    currentBlock2 = list.blockWherePlayer2()
     let pay = parseInt(req.query.mortage);
     player1.points = player1.points - pay
     player2.points = player2.points + pay
-    res.render('game', { list , currentBlock , users , player1 , player2 , p })
+    res.render('game', { list , currentBlock1 , currentBlock2 , users , player1 , player2 , p })
 })
 
 app.get('/monopoly/2/rent', (req,res) => {
     let p = 2
     currentBlock = list.blockWherePlayer2()
+    currentBlock1 = list.blockWherePlayer1()
+    currentBlock2 = list.blockWherePlayer2()
     let pay = parseInt(req.query.mortage);
     player2.points = player2.points - pay
     player1.points = player1.points + pay
-    res.render('game', { list , currentBlock , users , player1 , player2 , p })
+    res.render('game', { list , currentBlock1 , currentBlock2 , users , player1 , player2 , p })
 })
 
 app.get('/monopoly/1/card', (req,res) => {
     let p = 1;
     if(req.query.whereTo){
         currentBlock = list.blockWherePlayer1()
+        currentBlock1 = list.blockWherePlayer1()
+        currentBlock2 = list.blockWherePlayer2()
         currentBlock.object.isPlayer1 = false;
         list.teleport1(req.query.whereTo).object.isPlayer1 = true;
         currentBlock = list.blockWherePlayer1()
@@ -277,7 +328,7 @@ app.get('/monopoly/1/card', (req,res) => {
         }
         else{
             if(player1.owned.includes(currentBlock.object.title) === true)
-                res.render('game', { list  , users , player1 , player2 , details , p })
+                res.render('game', { list  , users , player1 , player2 , details , p , currentBlock1 , currentBlock2 })
             else if(player2.owned.includes(currentBlock.object.title) === false){
                 let canBuy = true
                 if(player1.points - currentBlock.object.price < 0){
@@ -307,7 +358,10 @@ app.get('/monopoly/1/card', (req,res) => {
             res.render('jail', { currentBlock , p , canbail })
         }
         else{
-            res.render('game', { list , users , player1 , player2 , p })
+            currentBlock = list.blockWherePlayer1()
+            currentBlock1 = list.blockWherePlayer1()
+            currentBlock2 = list.blockWherePlayer2()
+            res.render('game', { list , users , player1 , player2 , p , currentBlock1 , currentBlock2 })
         }
     }
 })
@@ -316,6 +370,8 @@ app.get('/monopoly/2/card', (req,res) => {
     let p = 2;
     if(req.query.whereTo){
         currentBlock = list.blockWherePlayer2()
+        currentBlock1 = list.blockWherePlayer1()
+        currentBlock2 = list.blockWherePlayer2()
         currentBlock.object.isPlayer2 = false;
         list.teleport1(req.query.whereTo).object.isPlayer2 = true;
         currentBlock = list.blockWherePlayer2()
@@ -334,7 +390,7 @@ app.get('/monopoly/2/card', (req,res) => {
         }
         else{
             if(player2.owned.includes(currentBlock.object.title) === true)
-                res.render('game', { list  , users , player1 , player2 , details , p })
+                res.render('game', { list  , users , player1 , player2 , details , p , currentBlock1 , currentBlock2 })
             else if(player1.owned.includes(currentBlock.object.title) === false){
                 let canBuy = true
                 if(player2.points - currentBlock.object.price < 0){
@@ -364,7 +420,10 @@ app.get('/monopoly/2/card', (req,res) => {
             res.render('jail', { currentBlock , p , canbail })
         }
         else{
-            res.render('game', { list , users , player1 , player2 , p })
+            currentBlock = list.blockWherePlayer2()
+            currentBlock1 = list.blockWherePlayer1()
+            currentBlock2 = list.blockWherePlayer2()
+            res.render('game', { list , users , player1 , player2 , p , currentBlock1 , currentBlock2 })
         }
     }
 })
@@ -390,7 +449,7 @@ app.get('/monopoly/1/sell/:place', (req,res) => {
     res.render('purchase', { list , currentBlock , users, player1 , player2 , p , canBuy})
 })
 
-app.get('/monopoly/2/sell', (req,res) => {
+app.get('/monopoly/2/sell/:place', (req,res) => {
     let p = 2
     land = list.teleport1(req.query.toSell)
     let pay = land.object.price
@@ -413,14 +472,20 @@ app.get('/monopoly/2/sell', (req,res) => {
 
 app.get('/monopoly/1/tax', (req,res) => {
     let p = 1
+    currentBlock = list.blockWherePlayer1()
     player1.points = player1.points - 100
-    res.render('game', { list , users , player1 , player2 , p })
+    currentBlock1 = list.blockWherePlayer1()
+    currentBlock2 = list.blockWherePlayer2()
+    res.render('game', { list , users , player1 , player2 , p , currentBlock1 , currentBlock2 })
 })
 
 app.get('/monopoly/2/tax', (req,res) => {
     let p = 2
+    currentBlock1 = list.blockWherePlayer1()
+    currentBlock2 = list.blockWherePlayer2()
+    currentBlock = list.blockWherePlayer2()
     player2.points = player2.points - 100
-    res.render('game', { list , users , player1 , player2 , p })
+    res.render('game', { list , users , player1 , player2 , p , currentBlock1 , currentBlock2 })
 })
 
 app.listen(1286, () =>{
