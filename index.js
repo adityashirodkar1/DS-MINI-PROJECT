@@ -488,6 +488,18 @@ app.get('/monopoly/2/tax', (req,res) => {
     res.render('game', { list , users , player1 , player2 , p , currentBlock1 , currentBlock2 })
 })
 
+app.get('/endgame', (req,res) => {
+    if(player1.points > player2.points){
+        winner = users[0]
+        dif = player1.points - player2.points
+    }
+    else{
+        winner = users[1]
+        dif = player2.points - player1.points
+    }
+    res.render('winner' , { winner , dif })
+})
+
 app.listen(1286, () =>{
     console.log('Listening at Port 1286')
 })
