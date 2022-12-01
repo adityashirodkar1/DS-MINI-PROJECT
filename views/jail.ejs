@@ -19,7 +19,11 @@
             <img src="https://res.cloudinary.com/dc4kfswj7/image/upload/v1668851821/dsMp/full_sey1yg.jpg" class="card-img-top" alt="Jail">
             <div class="card-body">
               <h5 class="card-title">Jail</h5>
-              <p class="card-text">You comitted a crime and ended up in a Jail. If you want to get bailed then your only option is to pay &#8377 50 or else you will have to stay here for eternity.</p>
+              <% if(p===1){ %> 
+              <p class="card-text"><%= users[0] %>  comitted a crime and ended up in a Jail. If you want to get bailed then your only option is to pay &#8377 50 or else you will have to stay here for eternity.</p>
+              <% }else{ %>
+                <p class="card-text"><%= users[1] %>  comitted a crime and ended up in a Jail. If you want to get bailed then your only option is to pay &#8377 50 or else you will have to stay here for eternity.</p>
+              <% } %> 
               <% if(canbail===false){ %>
                 <p class="card-text">It looks like your balance is less than &#8377 50. You can pay the fine by selling any one of your lands.</p>
               <% } %> 

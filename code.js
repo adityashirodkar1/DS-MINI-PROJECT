@@ -485,14 +485,6 @@ blocks = [
     }
 ]
 
-player1 = {
-    points: 5000
-}
-
-player2 = {
-    points: 5000
-}
-
 for(let i=0;i<16;i++){
     list.push(blocks[i])
 }

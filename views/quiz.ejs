@@ -10,6 +10,11 @@
                 </div>
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item">Reward: &#8377 <%=currentBlock.object.quiz[i].reward%></li>
+                  <% if(p===1){ %>
+                    <li class="list-group-item">Your Balance: &#8377 <%= player1.points %> </li>
+                  <% }else{ %>
+                    <li class="list-group-item">Your Balance: &#8377 <%= player2.points %> </li>
+                  <% } %>
                   <li class="list-group-item">
                     <div class="mt-1">
                         <form action="/monopoly/<%=p%>/<%=i%>" method="post"> 
@@ -41,6 +46,11 @@
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">Reward: &#8377 300</li> 
+                    <% if(p===1){ %>
+                        <li class="list-group-item">Your Balance: &#8377 <%= player1.points %> </li>
+                      <% }else{ %>
+                        <li class="list-group-item">Your Balance: &#8377 <%= player2.points %> </li>
+                      <% } %>
                     <li class="list-group-item">
                         <form action="/monopoly/<%=p%>/atlas/<%=currentBlock.object.place[i].what%>" method="POST">
                             <div class="input-group mb-3 mt-3">
